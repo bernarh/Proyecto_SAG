@@ -18,6 +18,9 @@
 
 	
 }
+#redes{
+	width: 30px;
+}
 #logos{
 	margin: 0 auto;
 	margin-left: 6%;
@@ -70,4 +73,14 @@ h1,h2,h4{
 }
 h3{
 	color:#fff;
+}
+
+footer{
+	background-color: #fff;
+
+
+}
+#contac{
+	margin: 0 auto;
+
 }

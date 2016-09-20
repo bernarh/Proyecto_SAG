@@ -35,7 +35,7 @@
 									<a class="navbar-brand">
 										<img id="icono" alt="Brand" src="imagenes/cacao.ico">
 									</a>
-									<a href="#icono" class="navbar-brand">CacaoPrices</a>
+									<a href="#icono" class="navbar-brand">PROCACAHO</a>
 									
 								</div>
 
@@ -46,7 +46,7 @@
 										<li><a href="">Ver Datos</a></li>
 										<li><a href="">Reportes</a></li>
 										<li class="dropdown">
-											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos <span class="caret"></span></a>
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
 											<ul class="dropdown-menu">
 												<li><a href="#">Grafico de Barras</a></li>
 												<li><a href="#">Grafico de Linea</a></li>
@@ -56,11 +56,22 @@
 
 											</ul>
 										</li>
+										<li class="dropdown ">
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Opc.<span class="caret"></span></a>	 		
+											<ul href="opcion" class="dropdown-menu">
+												<li><a href="#">Cerrar Sesi&oacute;n</a></li>
+												<li class="divider"></li>
+												<li><a href="#">Cambiar Contrase&ntilde;a</a></li>
+												<li><a href="#">Mi Perfil</a></li>
+												
+
+											</ul>
+										</li>
 
 
 									</ul>
 
-									<form action="" class="navbar-form navbar-left" role="search">
+									<form action="" class="navbar-form navbar-right hidden-sm" role="search">
 										<div class="form-group">
 											<input type="text" class="form-control " placeholder="Buscar">
 
@@ -159,7 +170,7 @@
 									<div class="form-group">
 										<label class="control-label col-md-2" for="tel">Tel&eacute;fono:</label>
 										<div class="col-md-4">
-											<input class="form-control" id="hoja" type="number" placeholder="Hoja:">
+											<input class="form-control" id="hoja" type="number" placeholder="Tel&eacute;fono">
 										</div>
 
 									</div>
@@ -280,12 +291,52 @@
 
 			</div>
 		</div>
+
+		<br>
+		<br>
+		<br>
 		
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>
 
-<footer>
+<footer class="footer">
+	<div class="row" id="contac">
+		<div class="container col-xs-12" >
+			<center><h4>Cont&aacute;ctenos:</h4></center>
+		</div>
+
+	</div>
+	<div class="container row">
+		<div class="container col-xs-12 col-sm-2 col-md-2">
+			<h6><b>Tel&eacute;fonos:</b></h6>
+			<h6>22227-0000</h6>
+			<h6>22227-0001</h6>
+
+		</div>
+		<div class="col-xs-12 col-sm-7 col-md-7">
+			<h6><b>S&iacute;guenos:</b></h6>
+			<div>
+				<img id="redes" src="imagenes/facebook.png">
+				<button class="btn btn-xs btn-link">Facebook</button>
+				<img id="redes" src="imagenes/twitter.png">
+				<button class="btn btn-xs btn-link">Twitter</button>
+				<img id="redes" src="imagenes/whatsapp.jpg">
+				<button class="btn btn-xs btn-link">Whatsapp</button>
+				<img id="redes" src="imagenes/gmail.ico">
+				<button class="btn btn-xs btn-link">Gmail</button>
+			</div>
+		</div>
+		<div class="col-xs-12 col-sm-3 col-md-3">
+			<h6><b>Direcci&oacute;n:</b></h6>
+			<h6>Boulevar Centroamerica </h6>
+		</div>
+
+
+	</div>
+	<div class="row">
+		<center><h6>Todos los derechos Reservados @CopyRight</h6></center>
+	</div>
 
 </footer>
 
