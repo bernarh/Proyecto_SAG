@@ -1,11 +1,18 @@
+<?php
+	session_start();
+	include 'conexion.php';
+	if(isset($_SESSION['user'])){
+	echo '<script> window.location="menu.php"; </script>';
+	}
+?>
 <!doctype html>
 <html>
 	<head>
-		
+		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="Style.css">
-		
+		<title>Login</title>
 	</head>
 
 	<body>
@@ -25,10 +32,10 @@
 	
 		<div class="container row "id="caja">
 			<center><h1>Login</h1></center>
-			<form>
-				<input id="inputext" type="text" name="usuario" placeholder="Usuario" >
-				<input id="inputext" type="password" name="pass" placeholder="Password">
-				<input id="botonlogin"type="submit" name="login" value="Login"/>
+			<form action="validar.php" method="post">
+				<input id="inputext" type="text" name="user" required placeholder="Usuario" >
+				<input id="inputext" type="password" name="pw" required placeholder="Password">
+				<input id="botonlogin"type="submit" name="login" value="Entrar"/>
 			</form>
 		</div>
 		
