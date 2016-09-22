@@ -5,6 +5,7 @@
 	echo '<script> window.location="menu.php"; </script>';
 	}
 ?>
+
 <!doctype html>
 <html>
 	<head>
@@ -31,11 +32,20 @@
 		<br>
 	
 		<div class="container row "id="caja">
-			<center><h1>Login</h1></center>
+			<center><h1 id="login">Login</h1></center>
 			<form action="validar.php" method="post">
 				<input id="inputext" type="text" name="user" required placeholder="Usuario" >
 				<input id="inputext" type="password" name="pw" required placeholder="Password">
+				
+				<select id="select" class="form-control" value="" required placeholder="Opci&oacute;n">
+					<option value="">--Tipo de Usuario--</option>
+					<option value="">T&eacute;cnico Digitador</option>
+					<option value="">Administrador</option>
+					<option value="">Director</option>
+
+				</select><br>
 				<input id="botonlogin"type="submit" name="login" value="Entrar"/>
+				<div class="clearfix"></div>
 			</form>
 		</div>
 		

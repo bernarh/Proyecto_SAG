@@ -236,7 +236,7 @@
 									<div class="form-group">
 										<label class="control-label col-md-2" for="tipop">Elija el tipo de producto::</label>
 										<div class="col-md-4">
-											<select class="form-control" value="" id="tipop">
+										<select class="form-control" value="" id="tipop">
 											<option value="">--Opci&oacute;n--</option>
 											<option value="">Baba tipo A</option>
 											<option value="">Baba tipo b</option>
