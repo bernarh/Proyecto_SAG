@@ -1,4 +1,29 @@
 ﻿<?php
-	$conect = @mysql_connect("localhost","root","") or die("No se encontró el servidor");
-	mysql_select_db("sag",$conect)or die("No se encontró la base de datos");
+	
+	class Conexion 
+	{
+		private $conect;
+
+		public function establecerConexion(){
+			$conect = new mysqli("localhost", "root", "", "sag");
+		}
+
+		function __construct()
+		{
+			$this->establecerConexion();
+		}
+		
+
+		public function getConexion(){
+			return $this->conect;
+		}
+
+		public function cerrarConexion(){
+			mysqli__close($conect);
+		}
+
+
+
+	}
+	
 ?>

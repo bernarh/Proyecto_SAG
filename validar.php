@@ -11,18 +11,21 @@
 </head>
 <body>
 		<?php
-			include 'conexion.php';
+			require_once( 'usuario.php');
 			if(isset($_POST['login'])){
-				$usuario = $_POST['user'];
-				$pw = $_POST['pw'];
-				$log = mysql_query("SELECT * FROM tbl_usuario WHERE user='$usuario' AND pw='$pw'");
-				if (mysql_num_rows($log)>0) {
-					$row = mysql_fetch_array($log);
-					$_SESSION["user"] = $row['user']; 
+				$usuario= new Usuario($_POST['user'],$_POST['pw']);
+				$usuario->autenticar();
+				if ($usuario->getUser()!=null) {
+					$_SESSION["user"] = $usuario->getUser(); 
 				  	echo 'Iniciando sesión para '.$_SESSION['user'].' <p>';
-					echo '<script> window.location="menu.php"; </script>';
-				}
-				else{
+				  	if ($usuario->getCodigoTipoUsuario()==1){
+						echo '<script> window.location="menuadministrador.php"; </script>';
+					}else if ($usuario->getCodigoTipoUsuario()==2){
+						echo '<script> window.location="menusupervisor.php"; </script>';
+					}else if ($usuario->getCodigoTipoUsuario()==3){
+						echo '<script> window.location="menu.php"; </script>';
+					}
+				} else{
 					echo '<script> alert("Usuario o contraseña incorrectos.");</script>';
 					echo '<script> window.location="index.php"; </script>';
 				}
