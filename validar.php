@@ -23,7 +23,7 @@
 					}else if ($usuario->getCodigoTipoUsuario()==2){
 						echo '<script> window.location="menusupervisor.php"; </script>';
 					}else if ($usuario->getCodigoTipoUsuario()==3){
-						echo '<script> window.location="menu.php"; </script>';
+						echo '<script> window.location="registrar.php"; </script>';
 					}
 				} else{
 					echo '<script> alert("Usuario o contraseña incorrectos.");</script>';
