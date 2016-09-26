@@ -34,7 +34,7 @@ header{
 }
 
 body{
-		background-image: url("../imagenes/fondo1.jpg");
+		background-image: url("imagenes/fondo.jpg");
 		background-repeat: no-repeat;
 		-webkit-background-size: cover;
     	-moz-background-size: cover;
@@ -44,7 +44,6 @@ body{
 
 
 }
-
 #inputext{
 	margin: 0 0 1em 0;
 	width: 200px;
@@ -105,4 +104,3 @@ footer{
 	margin: 0 auto;
 
 }
-

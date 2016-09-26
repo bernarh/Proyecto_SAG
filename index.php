@@ -11,16 +11,17 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="Style.css">
+		<link rel="stylesheet" type="text/css" href="css/Stylelogin.css">
 		<title>Login</title>
 	</head>
-
 	<body>
 		<header>
+			<center><h1 id="login">Sistema de Control de Precio del Cacao</h1></center>
 			<div class="row">
 				<div class="container-fluid" id="logos">
 					<div class="">
-						<img class="col-xs-10 col-sm-10 col-md-10" src="imagenes/logos.png">
+						<img class="col-xs-10 col-sm-10 col-md-10" src="">
+
 					</div>					
 					<div class="clearfix visible-xs-block"></div>
 					<div class="clearfix visible-sm-block"></div>
@@ -38,13 +39,11 @@
 		<input id="botonlogin" type="submit" name="login" value="Entrar"/>
 		<div class="clearfix"></div>
 		</form>
-	</div>
-		
-
+	</div>	
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	</body>
-	
+	</div>
 	<footer>
 
 

@@ -12,9 +12,7 @@ if(isset($_SESSION['user'])) {?>
 		<link rel="stylesheet" type="text/css" href="css/Style.css">
 		
 	</head>
-
 	<body>
-
 		<header>
 			<div class="row">
 				<div class="container-fluid" id="logos">
@@ -132,12 +130,12 @@ if(isset($_SESSION['user'])) {?>
 		<div class="container">
 			<!--boton que accede a ventana modal -->
 			<button class="btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Agregar</button>
-			<button class="btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Modificar</button>
-			<button class="btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Eliminar</button>
+			<button class="btn btn-success" data-toggle="modal" data-target="#editarregistro">Modificar</button>
+			<button class="btn btn-success" data-toggle="modal" data-target="#editarregistro">Eliminar</button>
 			<!--boton que accede a ventana modal -->
+		</div>
 		<div class="container">
-			<!--boton que accede a ventana modal -->
-			
+			<!--boton que accede a ventana modal -->	
 			<div class="modal fade" id="nuevoregistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<!--Ventana modal (inicio) -nuevo registro -->
 				<div class="modal-dialog">
@@ -200,6 +198,16 @@ if(isset($_SESSION['user'])) {?>
 										</div>
 									</div>
 									<div class="form-group">
+										<label class="control-label col-md-2" for="tipop">Tipo de Usuario:</label>
+										<div class="col-md-4">
+											<select class="form-control" value="" id="tipop">
+												<option value="">--Opci&oacute;n--</option>
+												<option value="">Administrador</option>
+												<option value="">T&eacute;cnico</option>
+												<option value="">Supervidor</option>
+											</select>
+										</div>
+									</div>
 								</form>
 							</div>
 						</div>
@@ -214,15 +222,122 @@ if(isset($_SESSION['user'])) {?>
 
 			</div>
 		</div>
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+
+
+		<div class="container">
+			<!--boton que accede a ventana modal -->	
+			<div class="modal fade" id="editarregistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<!--Ventana modal (inicio) -nuevo registro -->
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4>Editar Usuario:</h4>
+						</div>
+
+						<div class="modal-body">
+							<!--formulario -nuevo registro -->
+							<div class="container">
+								<form action="" class="form-horizontal">
+
+									<div class="form-group">
+										<label class="control-label col-md-2" for="nomtec">N&uacute;mero del Usuario:</label>
+										
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="text" placeholder="N&uacute;mero del Usuario:">
+											<br>
+											<button  type="submit" class="btn btn-success" data-dismiss="modal">Buscar</button>
+									</div>
+								</div>
+
+								
+
+								<form action="" class="form-horizontal">
+									<div class="form-group">
+										<label class="control-label col-md-2" for="nomtec">Nombres del Usuario:</label>
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="text" placeholder="Nombres del Usuario">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-2" for="nomtec">Apellidos del Usuario:</label>
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="text" placeholder="Apellidos del Usuario">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-2" for="nomtec">No. Tel&eacute;fono:</label>
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="text" placeholder="No. Tel&eacute;fono">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-2" for="nomtec">Contraseña:</label>
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="password" placeholder="Password">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-2" for="nomtec">Repita Contraseña:</label>
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="password" placeholder="password">
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-2" for="fech1">Fecha de Nacimiento:</label>
+										<div class="col-md-4">
+											<input class="form-control" id="fech1" type="date" >
+										</div>
+									</div>
+
+									<div class="form-group">
+										<label class="control-label col-md-2" for="nomtec">Correo Electr&oacute;nico:</label>
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="email" placeholder="correo electr&oacute;nico">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2" for="tipop">Tipo de Usuario:</label>
+										<div class="col-md-4">
+											<select class="form-control" value="" id="tipop">
+												<option value="">--Opci&oacute;n--</option>
+												<option value="">Administrador</option>
+												<option value="">T&eacute;cnico</option>
+												<option value="">Supervidor</option>
+											</select>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
+							<button type="submit" class="btn btn-success" data-dismiss="modal">Editar</button>
+							<button type="submit" class="btn btn-success" data-dismiss="modal">Eliminar</button>
+						</div>
+
+					</div>
+				</div>
+				<!--Ventana modal (fin) -nuevo registro -->
+
+			</div>
+		</div>
+
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 	</body>
 
-	<footer class="footer">
-		<div class="row">
-			<center><h6>Todos los derechos Reservados @CopyRight</h6></center>
-		</div>
-	</footer>
+<footer class="footer">
+	<div class="row">
+		<center><h6>Todos los derechos Reservados @CopyRight</h6></center>
+	</div>
+
+</footer>
 
 </html>
 <?php
