@@ -13,7 +13,7 @@ if(isset($_SESSION['user'])) {?>
 <div>
   <article>
     <p> 
-        Acceso Correcto, Bienvenido tecnico
+        Acceso Correcto, Bienvenido Administrador
     </p>
   </article>
 <div align="right">
