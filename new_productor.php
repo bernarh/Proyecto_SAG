@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 include 'conexion.php';
@@ -30,7 +31,7 @@ if(isset($_SESSION['user'])) {?>
 							<div class="container-fluid">
 								<div class="navbar-header">
 									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
-										<span class="sr-only">Menu </span>
+										<span class="sr-only">Menu</span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
@@ -46,8 +47,8 @@ if(isset($_SESSION['user'])) {?>
 
 								<div class="collapse navbar-collapse" id="navbar-1">
 									<ul class="nav navbar-nav">
-										<li class="active"><a href="">Editar Usuario</a></li>
-										<li><a href="registroactividad.php">Registro de Actividades</a></li>
+										<li><a href="registrar.php">Registrar</a></li>
+										<li class="active"><a href="">Nuevo Productor</a></li>
 										<li><a href="">Ver Datos</a></li>
 										<li><a href="">Reportes</a></li>
 										<li class="dropdown">
@@ -64,7 +65,7 @@ if(isset($_SESSION['user'])) {?>
 										<li class="dropdown ">
 											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Opci&oacute;n<span class="caret"></span></a>	 		
 											<ul href="opcion" class="dropdown-menu">
-												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
+												<li><a href="#">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
 												<li><a href="#">Cambiar Contrase&ntilde;a</a></li>
 												<li><a href="#">Mi Perfil</a></li>
@@ -89,52 +90,22 @@ if(isset($_SESSION['user'])) {?>
 				</div>
 			</div>
 		</header>
+
 		<br>
 		<div>
-			<center><h3>Usuarios Registrados Recientemente</h3></center>
+			<center><h3>Lista de Productores Registrados</h3></center>
 		</div>
-		<div class="container">
-			<div class="table-responsive">
-				<table class="table table-bordered table-hover ">
-					<tr class="success">
-						<th>C&oacute;digo Usuario</th>
-						<th>Nombre del Usuario</th>
-						<th>Fecha de Nacimiento</th>
-						<th>Tel&eacute;fono</th>
-						<th>Correo Electr&oacute;nico</th>
-					</tr>
-					<tr class="active">
-						<td>0001</td>
-						<td>Usuario 1</td>
-						<td>16/09/2016</td>
-						<td>0000-0000</td>
-						<td>usuario1@dominiocorreo.com</td>
-					</tr>
-					<tr class="active">
-						<td>0002</td>
-						<td>Usuario 2</td>
-						<td>16/09/2016</td>
-						<td>0000-0000</td>
-						<td>usuario2@dominiocorreo.com</td>
-					</tr>
-					<tr class="active">
-						<td>0003</td>
-						<td>Usuario 3</td>
-						<td>16/09/2016</td>
-						<td>0000-0000</td>
-						<td>usuario3@dominiocorreo.com</td>
-					</tr>
-				</table>
-			</div>
-			
+
+		<!--Lista de productores en la base de datos -->
+		<div class="container list-group">
+			<a href="#" class="list-group-item active b" data-toggle="modal" data-target="#nuevoregistro">Elija una de las opciones</a>
+			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Nuevo Productor</a>
+			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Morbi leo risus</a>
+			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Porta ac consectetur ac</a>
+			<a  class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Vestibulum at eros</a>
 		</div>
 		<br>
-		<div class="container">
-			<!--boton que accede a ventana modal -->
-			<button class="btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Agregar</button>
-			<button class="btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Modificar</button>
-			<button class="btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Eliminar</button>
-			<!--boton que accede a ventana modal -->
+		<!--boton que accede a ventana modal -->
 		<div class="container">
 			<!--boton que accede a ventana modal -->
 			
@@ -144,7 +115,7 @@ if(isset($_SESSION['user'])) {?>
 					<div class="modal-content">
 						<div class="modal-header">
 							<button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4>Crear Usuario:</h4>
+							<h4>Nuevo Productor:</h4>
 						</div>
 
 						<div class="modal-body">
@@ -152,57 +123,78 @@ if(isset($_SESSION['user'])) {?>
 							<div class="container">
 								<form action="" class="form-horizontal">
 									<div class="form-group">
-										<label class="control-label col-md-2" for="nomtec">Nombres del Usuario:</label>
+										<label class="control-label col-md-2" for="tipop">Elija La Ruta:</label>
 										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="text" placeholder="Nombres del Usuario">
+										<select class="form-control" value="" id="tipop">
+											<option value="">--Opci&oacute;n--</option>
+											<option value="">Ruta 1</option>
+											<option value="">Ruta 2</option>
+											<option value="">Ruta 3</option>
+											<option value="">Ruta 4</option>
+										</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2" for="tipop">Elija El Municipio:</label>
+										<div class="col-md-4">
+										<select class="form-control" value="" id="tipop">
+											<option value="">--Opci&oacute;n--</option>
+											<option value="">Municipio 1</option>
+											<option value="">Municipio 2</option>
+											<option value="">Municipio 3</option>
+											<option value="">Municipio 4</option>
+										</select>
+										</div>
+									</div>
+									<div class="form-group">
+
+										<label class="control-label col-md-2" for="nomtec">Nombre del Productor:</label>
+
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="text" placeholder="Nombre del Productor">
+										</div>
+									</div>
+									<div class="form-group">
+
+										<label class="control-label col-md-2" for="nomtec">Ubicaci&oacute;n:</label>
+
+										<div class="col-md-4">
+											<input class="form-control" id="nomtec" type="text" placeholder="Ubicaci&oacute;n">
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="control-label col-md-2" for="nomtec">Apellidos del Usuario:</label>
+
+										<label class="control-label col-md-2" for="zona">No:</label>
 										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="text" placeholder="Apellidos del Usuario">
+											<input class="form-control" id="zona" type="number" placeholder="Zona">
 										</div>
+										
+									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2" for="tel">Tel&eacute;fono:</label>
+										<div class="col-md-4">
+											<input class="form-control" id="hoja" type="number" placeholder="Tel&eacute;fono">
+										</div>
+
 									</div>
 
 									<div class="form-group">
-										<label class="control-label col-md-2" for="nomtec">No. Tel&eacute;fono:</label>
+										<label class="control-label col-md-2" for="tipop">Elija El Supervisor de la Zona:</label>
 										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="text" placeholder="No. Tel&eacute;fono">
+										<select class="form-control" value="" id="tipop">
+											<option value="">--Opci&oacute;n--</option>
+											<option value="">Supervisor 1</option>
+											<option value="">Supervisor 2</option>
+											<option value="">Supervisor 3</option>
+											<option value="">Supervisor 4</option>
+										</select>
 										</div>
 									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="nomtec">Contraseña:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="password" placeholder="Password">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="nomtec">Repita Contraseña:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="password" placeholder="password">
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="fech1">Fecha de Nacimiento:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="fech1" type="date" >
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="nomtec">Correo Electr&oacute;nico:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="email" placeholder="correo electr&oacute;nico">
-										</div>
-									</div>
-									<div class="form-group">
 								</form>
 							</div>
 						</div>
+
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
 							<button type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>

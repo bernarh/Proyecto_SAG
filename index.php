@@ -2,7 +2,7 @@
 	session_start();
 	include 'conexion.php';
 	if(isset($_SESSION['user'])){
-	echo '<script> window.location="registrar.php"; </script>';
+		echo '<script> window.location="logout.php"; </script>';
 	}
 ?>
 <!doctype html>

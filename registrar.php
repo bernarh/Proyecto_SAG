@@ -1,10 +1,15 @@
+<?php
+session_start();
+include 'conexion.php';
+
+if(isset($_SESSION['user'])) {?>
 <!doctype html>
 <html>
 	<head>
 		
 		<meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="Style.css">
+		<link rel="stylesheet" type="text/css" href="css/Style.css">
 		
 	</head>
 
@@ -25,7 +30,7 @@
 							<div class="container-fluid">
 								<div class="navbar-header">
 									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
-										<span class="sr-only">Menu</span>
+										<span class="sr-only">Menu </span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
 										<span class="icon-bar"></span>
@@ -42,7 +47,7 @@
 								<div class="collapse navbar-collapse" id="navbar-1">
 									<ul class="nav navbar-nav">
 										<li class="active"><a href="">Registrar</a></li>
-										<li><a href="">Nuevo Productor</a></li>
+										<li><a href="new_productor.php">Nuevo Productor</a></li>
 										<li><a href="">Ver Datos</a></li>
 										<li><a href="">Reportes</a></li>
 										<li class="dropdown">
@@ -57,7 +62,7 @@
 											</ul>
 										</li>
 										<li class="dropdown ">
-											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Opc.<span class="caret"></span></a>	 		
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Opci&oacute;n<span class="caret"></span></a>	 		
 											<ul href="opcion" class="dropdown-menu">
 												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
@@ -96,28 +101,28 @@
 						<th>Tipo de Producto</th>
 						<th>Fecha de ingreso</th>
 						<th>Usuario Digitador</th>
-						<th>Estado</th>
+						<th>Precio</th>
 					</tr>
 					<tr class="active">
 						<td>0001</td>
 						<td>baba</td>
 						<td>16/09/2016</td>
 						<td>Usuario 1</td>
-						<td>Activo</td>
+						<td>00.00</td>
 					</tr>
 					<tr class="active">
 						<td>0002</td>
 						<td>Fermentado Seco</td>
 						<td>16/09/2016</td>
 						<td>Usuario 1</td>
-						<td>Inactivo</td>
+						<td>00.00</td>
 					</tr>
 					<tr class="active">
 						<td>0003</td>
 						<td>Fermentado</td>
 						<td>16/09/2016</td>
 						<td>Usuario 1</td>
-						<td>Inactivo</td>
+						<td>00.00</td>
 					</tr>
 				</table>
 			</div>
@@ -222,19 +227,18 @@
 									</div>
 
 									<div class="form-group">
-										<label class="control-label col-md-2" for="product">Producci&oacute;n:</label>
-										<div class="col-md-4 radio-inline">
-											<label class="radio-inline">
-											  <input type="radio" name="inlineRadioOptions" id="product1" value="C"> C
-											</label>
-											<label class="radio-inline">
-											  <input type="radio" name="inlineRadioOptions" id="product2" value="O"> O
-											</label>											
+										<label class="control-label col-md-2" for="tipop">Producci&oacute;n:</label>
+										<div class="col-md-4">
+										<select class="form-control" value="" id="tipop">
+											<option value="">--Opci&oacute;n--</option>
+											<option value="">Convencional</option>
+											<option value="">Org&aacute;nico</option>
+										</select>
 										</div>
 									</div>
 
 									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Elija el tipo de producto::</label>
+										<label class="control-label col-md-2" for="tipop">Elija el tipo de producto:</label>
 										<div class="col-md-4">
 										<select class="form-control" value="" id="tipop">
 											<option value="">--Opci&oacute;n--</option>
@@ -254,7 +258,7 @@
 											<input class="form-control" id="precio" type="number" placeholder="Precio:">
 										</div>
 										<div class="col-md-2">
-											<label class="control-label ">Uni/Lb</label>
+											<label class="control-label "></label>
 										</div>
 									</div>
 
@@ -265,7 +269,7 @@
 										
 										</div>
 										<div class="col-md-2">
-											<label class="control-label " >Uni/Lb</label>
+											<label class="control-label " ></label>
 										</div>
 									</div>
 
@@ -282,6 +286,7 @@
 
 						<div class="modal-footer">
 							<button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
+							<button type="button" class="btn btn-success " data-dismiss="modal">Nuevo Producto</button>
 							<button type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>
 						</div>
 
@@ -301,39 +306,7 @@
 	</body>
 
 <footer class="footer">
-	<div class="row" id="contac">
-		<div class="container col-xs-12" >
-			<center><h4>Cont&aacute;ctenos:</h4></center>
-		</div>
-
-	</div>
-	<div class="container row">
-		<div class="container col-xs-12 col-sm-2 col-md-2">
-			<h6><b>Tel&eacute;fonos:</b></h6>
-			<h6>22227-0000</h6>
-			<h6>22227-0001</h6>
-
-		</div>
-		<div class="col-xs-12 col-sm-7 col-md-7">
-			<h6><b>S&iacute;guenos:</b></h6>
-			<div>
-				<img id="redes" src="imagenes/facebook.png">
-				<button class="btn btn-xs btn-link">Facebook</button>
-				<img id="redes" src="imagenes/twitter.png">
-				<button class="btn btn-xs btn-link">Twitter</button>
-				<img id="redes" src="imagenes/whatsapp.jpg">
-				<button class="btn btn-xs btn-link">Whatsapp</button>
-				<img id="redes" src="imagenes/gmail.ico">
-				<button class="btn btn-xs btn-link">Gmail</button>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-3 col-md-3">
-			<h6><b>Direcci&oacute;n:</b></h6>
-			<h6>Boulevar Centroamerica </h6>
-		</div>
-
-
-	</div>
+	
 	<div class="row">
 		<center><h6>Todos los derechos Reservados @CopyRight</h6></center>
 	</div>
@@ -341,3 +314,8 @@
 </footer>
 
 </html>
+<?php
+}else{
+	echo '<script> window.location="index.php"; </script>';
+}
+?>

@@ -1,3 +1,6 @@
+<?php
+	session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,15 +55,14 @@
 
 				        <label>FECHA DE NACIMIENTO <span class="tooltip">?</span></label>
 						<div class="fecha_nacimiento">
-							<input type="text" class="small">
-							<input type="text" class="small">
-							<input type="text" class="small">
+							<input type="date" class="small">
+							
 						</div>
 					</div>
 					
 				</fieldset>
 
-				<input type="submit" value="Siguiente">
+				<input type="submit" value="Crear Usuario">
 
 			</form>
 		</div>

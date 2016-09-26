@@ -13,11 +13,12 @@
 		}
 
 		public function autenticar(){
+			
 			$mysqli = new mysqli("localhost", "root", "", "sag");
 			if (mysqli_connect_errno()) {
     			printf("Connect failed: %s\n", mysqli_connect_error());
     			exit();
-			}	
+			}
 			if ($stmt = $mysqli->prepare("SELECT USER, PW, TIPO_USUARIO FROM TBL_USUARIO WHERE USER = ? AND PW = ? ")){
 				$stmt->bind_param("ss",$this->user,$this->pw);
 				$stmt->execute();
