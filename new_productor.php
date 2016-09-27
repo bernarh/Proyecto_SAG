@@ -112,6 +112,7 @@ if(isset($_SESSION['user'])) {?>
 			<div class="modal fade" id="nuevoregistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<!--Ventana modal (inicio) -nuevo registro -->
 				<div class="modal-dialog">
+
 					<div class="modal-content">
 						<div class="modal-header">
 							<button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -120,79 +121,81 @@ if(isset($_SESSION['user'])) {?>
 
 						<div class="modal-body">
 							<!--formulario -nuevo registro -->
-							<div class="container">
-								<form action="" class="form-horizontal">
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Elija La Ruta:</label>
-										<div class="col-md-4">
-										<select class="form-control" value="" id="tipop">
-											<option value="">--Opci&oacute;n--</option>
-											<option value="">Ruta 1</option>
-											<option value="">Ruta 2</option>
-											<option value="">Ruta 3</option>
-											<option value="">Ruta 4</option>
-										</select>
+							<form class="form-horizontal" role="form" action="insertar.php" method="post">
+								<div class="container">
+									<form action="" class="form-horizontal">
+										<div class="form-group">
+											<label class="control-label col-md-2" for="tipop">Elija La Ruta:</label>
+											<div class="col-md-4">
+											<select class="form-control" value="" id="tipop">
+												<option value="">--Opci&oacute;n--</option>
+												<option value="">Ruta 1</option>
+												<option value="">Ruta 2</option>
+												<option value="">Ruta 3</option>
+												<option value="">Ruta 4</option>
+											</select>
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Elija El Municipio:</label>
-										<div class="col-md-4">
-										<select class="form-control" value="" id="tipop">
-											<option value="">--Opci&oacute;n--</option>
-											<option value="">Municipio 1</option>
-											<option value="">Municipio 2</option>
-											<option value="">Municipio 3</option>
-											<option value="">Municipio 4</option>
-										</select>
+										<div class="form-group">
+											<label class="control-label col-md-2" for="tipop">Elija El Municipio:</label>
+											<div class="col-md-4">
+											<select class="form-control" value="" id="tipop">
+												<option value="">--Opci&oacute;n--</option>
+												<option value="">Municipio 1</option>
+												<option value="">Municipio 2</option>
+												<option value="">Municipio 3</option>
+												<option value="">Municipio 4</option>
+											</select>
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
+										<div class="form-group">
 
-										<label class="control-label col-md-2" for="nomtec">Nombre del Productor:</label>
+											<label class="control-label col-md-2" for="nomtec">Nombre del Productor:</label>
 
-										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="text" placeholder="Nombre del Productor">
+											<div class="col-md-4">
+												<input class="form-control" id="nomtec" type="text" placeholder="Nombre del Productor">
+											</div>
 										</div>
-									</div>
-									<div class="form-group">
+										<div class="form-group">
 
-										<label class="control-label col-md-2" for="nomtec">Ubicaci&oacute;n:</label>
+											<label class="control-label col-md-2" for="nomtec">Ubicaci&oacute;n:</label>
 
-										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="text" placeholder="Ubicaci&oacute;n">
-										</div>
-									</div>
-
-									<div class="form-group">
-
-										<label class="control-label col-md-2" for="zona">No:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="zona" type="number" placeholder="Zona">
-										</div>
-										
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tel">Tel&eacute;fono:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="hoja" type="number" placeholder="Tel&eacute;fono">
+											<div class="col-md-4">
+												<input class="form-control" id="nomtec" type="text" placeholder="Ubicaci&oacute;n">
+											</div>
 										</div>
 
-									</div>
+										<div class="form-group">
 
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Elija El Supervisor de la Zona:</label>
-										<div class="col-md-4">
-										<select class="form-control" value="" id="tipop">
-											<option value="">--Opci&oacute;n--</option>
-											<option value="">Supervisor 1</option>
-											<option value="">Supervisor 2</option>
-											<option value="">Supervisor 3</option>
-											<option value="">Supervisor 4</option>
-										</select>
+											<label class="control-label col-md-2" for="zona">No:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="zona" type="number" placeholder="Zona">
+											</div>
+											
 										</div>
-									</div>
-								</form>
-							</div>
+										<div class="form-group">
+											<label class="control-label col-md-2" for="tel">Tel&eacute;fono:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="hoja" type="number" placeholder="Tel&eacute;fono">
+											</div>
+
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-2" for="tipop">Elija El Supervisor de la Zona:</label>
+											<div class="col-md-4">
+											<select class="form-control" value="" id="tipop">
+												<option value="">--Opci&oacute;n--</option>
+												<option value="">Supervisor 1</option>
+												<option value="">Supervisor 2</option>
+												<option value="">Supervisor 3</option>
+												<option value="">Supervisor 4</option>
+											</select>
+											</div>
+										</div>
+									</form>
+								</div>
+							</form>
 						</div>
 
 						<div class="modal-footer">
