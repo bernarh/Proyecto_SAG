@@ -41,8 +41,8 @@
 
 								<div class="collapse navbar-collapse" id="navbar-1">
 									<ul class="nav navbar-nav">
-										<li class="active"><a href="">Registrar</a></li>
-										<li><a href="">Nuevo Productor</a></li>
+										<li><a href="">Registrar</a></li>
+										<li class="active"><a href="">Nuevo Productor</a></li>
 										<li><a href="">Ver Datos</a></li>
 										<li><a href="">Reportes</a></li>
 										<li class="dropdown">
@@ -84,49 +84,25 @@
 				</div>
 			</div>
 		</header>
+
 		<br>
 		<div>
-			<center><h3>Datos Recientemente Ingresados</h3></center>
+			<center><h3>Lista de Productores Registrados</h3></center>
 		</div>
-		<div class="container">
-			<div class="table-responsive">
-				<table class="table table-bordered table-hover ">
-					<tr class="success">
-						<th>C&oacute;digo</th>
-						<th>Tipo de Producto</th>
-						<th>Fecha de ingreso</th>
-						<th>Usuario Digitador</th>
-						<th>Estado</th>
-					</tr>
-					<tr class="active">
-						<td>0001</td>
-						<td>baba</td>
-						<td>16/09/2016</td>
-						<td>Usuario 1</td>
-						<td>Activo</td>
-					</tr>
-					<tr class="active">
-						<td>0002</td>
-						<td>Fermentado Seco</td>
-						<td>16/09/2016</td>
-						<td>Usuario 1</td>
-						<td>Inactivo</td>
-					</tr>
-					<tr class="active">
-						<td>0003</td>
-						<td>Fermentado</td>
-						<td>16/09/2016</td>
-						<td>Usuario 1</td>
-						<td>Inactivo</td>
-					</tr>
-				</table>
-			</div>
-			
+
+		<!--Lista de productores en la base de datos -->
+		<div class="container list-group">
+			<a href="#" class="list-group-item active b" data-toggle="modal" data-target="#nuevoregistro">Cras justo odio</a>
+			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Dapibus ac facilisis in</a>
+			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Morbi leo risus</a>
+			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Porta ac consectetur ac</a>
+			<a  class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Vestibulum at eros</a>
 		</div>
 		<br>
+		<!--boton que accede a ventana modal -->
 		<div class="container">
 			<!--boton que accede a ventana modal -->
-			<button class="btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Nuevo Registro</button>
+			
 			<div class="modal fade" id="nuevoregistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 				<!--Ventana modal (inicio) -nuevo registro -->
 				<div class="modal-dialog">
@@ -291,20 +267,48 @@
 
 			</div>
 		</div>
-
-		<br>
-		<br>
-		<br>
-		
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	</body>
 
-<footer class="footer">
-	<div class="row">
-		<center><h6>Todos los derechos Reservados @CopyRight</h6></center>
-	</div>
+	<footer class="footer">
+		<div class="row" id="contac">
+			<div class="container col-xs-12" >
+				<center><h4>Cont&aacute;ctenos:</h4></center>
+			</div>
 
-</footer>
+		</div>
+		<div class="container row">
+			<div class="container col-xs-12 col-sm-2 col-md-2">
+				<h6><b>Tel&eacute;fonos:</b></h6>
+				<h6>22227-0000</h6>
+				<h6>22227-0001</h6>
+
+			</div>
+			<div class="col-xs-12 col-sm-7 col-md-7">
+				<h6><b>S&iacute;guenos:</b></h6>
+				<div>
+					<img id="redes" src="imagenes/facebook.png">
+					<button class="btn btn-xs btn-link">Facebook</button>
+					<img id="redes" src="imagenes/twitter.png">
+					<button class="btn btn-xs btn-link">Twitter</button>
+					<img id="redes" src="imagenes/whatsapp.jpg">
+					<button class="btn btn-xs btn-link">Whatsapp</button>
+					<img id="redes" src="imagenes/gmail.ico">
+					<button class="btn btn-xs btn-link">Gmail</button>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-3 col-md-3">
+				<h6><b>Direcci&oacute;n:</b></h6>
+				<h6>Boulevar Centroamerica </h6>
+			</div>
+
+
+		</div>
+		<div class="row">
+			<center><h6>Todos los derechos Reservados @CopyRight</h6></center>
+		</div>
+
+	</footer>
 
 </html>

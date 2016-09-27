@@ -1,4 +1,4 @@
-
+input
 <?php
 session_start();
 include 'conexion.php';
@@ -196,8 +196,8 @@ if(isset($_SESSION['user'])) {?>
 						</div>
 
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
-							<button type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>
+							<input type="button" class="btn btn-default " data-dismiss="modal" value="Cerrar"/>
+							<input type="submit" class="btn btn-success" value="Enviar"/>
 						</div>
 
 					</div>

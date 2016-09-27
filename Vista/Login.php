@@ -16,16 +16,14 @@
 		<title>Login</title>
 	</head>
 
-	<body>
+	<body id="bodylogin">
 		<header>
 			<div class="row">
 				<div class="container-fluid" id="logos">
-					<div class="">
-						<img class="col-xs-10 col-sm-10 col-md-10"src="imagenes/logos.png">
-					</div>					
+										
 					<div class="clearfix visible-xs-block"></div>
 					<div class="clearfix visible-sm-block"></div>
-					
+				</div>	
 			</div>
 		</header>
 		<br>
@@ -37,14 +35,7 @@
 				<input id="inputext" type="text" name="user" required placeholder="Usuario" >
 				<input id="inputext" type="password" name="pw" required placeholder="Password">
 				
-				<select id="select" class="form-control" value="" required placeholder="Opci&oacute;n">
-					<option value="">--Tipo de Usuario--</option>
-					<option value="">T&eacute;cnico Digitador</option>
-					<option value="">Administrador</option>
-					<option value="">Director</option>
-
-				</select><br>
-				<input id="botonlogin"type="submit" name="login" value="Entrar"/>
+				<input id="botonlogin" type="submit" name="login" value="Entrar"/>
 				<div class="clearfix"></div>
 			</form>
 		</div>

@@ -143,151 +143,153 @@ if(isset($_SESSION['user'])) {?>
 
 						<div class="modal-body">
 							<!--formulario -nuevo registro -->
-							<div class="container">
-								<form action="" class="form-horizontal">
+							<form class="form-horizontal" role="form" action="insertar.php" method="post">
+								<div class="container">
+									<form action="" class="form-horizontal">
 
-									<div class="form-group">
+										<div class="form-group">
 
-										<label class="control-label col-md-2" for="nomtec">Nombre del T&eacute;cnico:</label>
+											<label class="control-label col-md-2" for="nomtec">Nombre del T&eacute;cnico:</label>
 
-										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="text" placeholder="Nombre del T&eacute;cnico">
-										</div>
-									</div>
-									
-
-									<div class="form-group">
-
-										<label class="control-label col-md-2" for="zona">Zona No:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="zona" type="number" placeholder="Zona">
+											<div class="col-md-4">
+												<input class="form-control" id="nomtec" type="text" placeholder="Nombre del T&eacute;cnico">
+											</div>
 										</div>
 										
-									</div>
 
-									<div class="form-group">
-										<label class="control-label col-md-2" for="hoja">Hoja No:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="hoja" type="number" placeholder="Hoja:">
-										</div>
-									</div>
+										<div class="form-group">
 
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tel">Tel&eacute;fono:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="hoja" type="number" placeholder="Tel&eacute;fono">
+											<label class="control-label col-md-2" for="zona">Zona No:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="zona" type="number" placeholder="Zona">
+											</div>
+											
 										</div>
 
-									</div>
-
-									<div class="form-group">
-								
-										<label class="control-label col-md-2" for="fech1">Fecha de recolecci&oacute;n inicial:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="fech1" type="date" >
+										<div class="form-group">
+											<label class="control-label col-md-2" for="hoja">Hoja No:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="hoja" type="number" placeholder="Hoja:">
+											</div>
 										</div>
-									</div>
 
-									<div class="form-group">
+										<div class="form-group">
+											<label class="control-label col-md-2" for="tel">Tel&eacute;fono:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="hoja" type="number" placeholder="Tel&eacute;fono">
+											</div>
 
-										<label class="control-label col-md-2" for="fech2">Fecha de recolecci&oacute;n final:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="fech2" type="date" >
+										</div>
+
+										<div class="form-group">
+									
+											<label class="control-label col-md-2" for="fech1">Fecha de recolecci&oacute;n inicial:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="fech1" type="date" >
+											</div>
+										</div>
+
+										<div class="form-group">
+
+											<label class="control-label col-md-2" for="fech2">Fecha de recolecci&oacute;n final:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="fech2" type="date" >
+											</div>
+											
+										</div>
+
+										<br>
+
+										<h4>Informaci&oacute;n de compra/venta</h4>
+										<br>
+
+										<div class="form-group">
+										
+											<label class="control-label col-md-2" for="fech3">Fecha de ingreso:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="fech3" type="date" >
+											</div>
+										</div>
+
+										<div class="form-group">
+							
+
+											<label class="control-label col-md-2" for="punto">Punto de recolecci&oacute;n:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="punto" type="text" >
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-2" for="tipot">Tipo de transacci&oacute;n:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="tipot" type="text" >
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-2" for="tipop">Producci&oacute;n:</label>
+											<div class="col-md-4">
+											<select class="form-control" value="" id="tipop">
+												<option value="">--Opci&oacute;n--</option>
+												<option value="">Convencional</option>
+												<option value="">Org&aacute;nico</option>
+											</select>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-2" for="tipop">Elija el tipo de producto:</label>
+											<div class="col-md-4">
+											<select class="form-control" value="" id="tipop">
+												<option value="">--Opci&oacute;n--</option>
+												<option value="">Baba tipo A</option>
+												<option value="">Baba tipo b</option>
+												<option value="">Fermentado Seco</option>
+												<option value="">Fermentado Seco B</option>
+												<option value="">Seco sin Fermentar</option>
+
+											</select>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-2" for="precio">Precio del producto:</label>
+											<div class="col-md-2">
+												<input class="form-control" id="precio" type="number" placeholder="Precio:">
+											</div>
+											<div class="col-md-2">
+												<label class="control-label "></label>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-2" for="volumen">Volumen del producto:</label>
+											<div class="col-md-2">
+												<input class="form-control" id="volumen" type="number" placeholder="Volumen:">
+											
+											</div>
+											<div class="col-md-2">
+												<label class="control-label " ></label>
+											</div>
+										</div>
+
+										<div class="form-group">
+											<label class="control-label col-md-2" for="comentario">Comentarios:</label>
+											<div class="col-md-4">
+												<input class="form-control" id="comentario" type="text" placeholder="Comentarios">
+											</div>
 										</div>
 										
-									</div>
-
-									<br>
-
-									<h4>Informaci&oacute;n de compra/venta</h4>
-									<br>
-
-									<div class="form-group">
-									
-										<label class="control-label col-md-2" for="fech3">Fecha de ingreso:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="fech3" type="date" >
-										</div>
-									</div>
-
-									<div class="form-group">
-						
-
-										<label class="control-label col-md-2" for="punto">Punto de recolecci&oacute;n:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="punto" type="text" >
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipot">Tipo de transacci&oacute;n:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="tipot" type="text" >
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Producci&oacute;n:</label>
-										<div class="col-md-4">
-										<select class="form-control" value="" id="tipop">
-											<option value="">--Opci&oacute;n--</option>
-											<option value="">Convencional</option>
-											<option value="">Org&aacute;nico</option>
-										</select>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Elija el tipo de producto:</label>
-										<div class="col-md-4">
-										<select class="form-control" value="" id="tipop">
-											<option value="">--Opci&oacute;n--</option>
-											<option value="">Baba tipo A</option>
-											<option value="">Baba tipo b</option>
-											<option value="">Fermentado Seco</option>
-											<option value="">Fermentado Seco B</option>
-											<option value="">Seco sin Fermentar</option>
-
-										</select>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="precio">Precio del producto:</label>
-										<div class="col-md-2">
-											<input class="form-control" id="precio" type="number" placeholder="Precio:">
-										</div>
-										<div class="col-md-2">
-											<label class="control-label "></label>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="volumen">Volumen del producto:</label>
-										<div class="col-md-2">
-											<input class="form-control" id="volumen" type="number" placeholder="Volumen:">
-										
-										</div>
-										<div class="col-md-2">
-											<label class="control-label " ></label>
-										</div>
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="comentario">Comentarios:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="comentario" type="text" placeholder="Comentarios">
-										</div>
-									</div>
-									
-								</form>
-							</div>
+									</form>
+								</div>
+							</form>
 						</div>
 
 						<div class="modal-footer">
-							<button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
-							<button type="button" class="btn btn-success " data-dismiss="modal">Nuevo Producto</button>
-							<button type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>
+							<input name="cerrar" type="button" value="Cerrar" class="btn btn-default " data-dismiss="modal"/>
+							<input href="insertar.php" name="nuevo" type="submit" value="Nuevo Producto" class="btn btn-success " />
+							<input href="insertar.php" name="enviar" type="submit" value="Enviar" class="btn btn-success" />
 						</div>
 
 					</div>
