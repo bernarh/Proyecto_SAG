@@ -15,7 +15,7 @@
 			if(isset($_POST['login'])){
 				$usuario= new Usuario($_POST['user'],$_POST['pw']);
 				$usuario->autenticar();
-				if ($usuario->getUser()!=null) {
+				if ($usuario->getCodigoTipoUsuario()!=null) {
 					$_SESSION["user"] = $usuario->getUser(); 
 				  	echo 'Iniciando sesión para '.$_SESSION['user'].' <p>';
 				  	if ($usuario->getCodigoTipoUsuario()==1){

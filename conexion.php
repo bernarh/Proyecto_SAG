@@ -1,25 +1,20 @@
-﻿<?php
+<?php
 	
 	class Conexion 
 	{
 		private $conect;
 
-		public function establecerConexion(){
-			$conect = new mysqli("localhost", "root", "", "sag");
-		}
-
 		function __construct()
 		{
-			$this->establecerConexion();
+			$this->conect = new mysqli("localhost", "root", "", "sag");
 		}
 		
-
 		public function getConexion(){
 			return $this->conect;
 		}
 
 		public function cerrarConexion(){
-			mysqli__close($conect);
+			mysqli__close($this->conect);
 		}
 
 
