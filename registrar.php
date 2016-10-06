@@ -145,7 +145,7 @@ if(isset($_SESSION['user'])) {?>
 							<!--formulario -nuevo registro -->
 							<form class="form-horizontal" role="form" action="insertar.php" method="post">
 								<div class="container">
-									<form action="" class="form-horizontal">
+									<form action="insertar.php" class="form-horizontal">
 
 										<div class="form-group">
 
@@ -280,7 +280,7 @@ if(isset($_SESSION['user'])) {?>
 												<input class="form-control" id="comentario" type="text" placeholder="Comentarios">
 											</div>
 										</div>
-										
+										<>
 									</form>
 								</div>
 							</form>
