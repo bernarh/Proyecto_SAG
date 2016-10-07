@@ -13,8 +13,8 @@
 		}
 
 		public function autenticar(){
-			$conexion= new Conexion();
-			$mysqli= $conexion->getConexion();
+			
+			$mysqli = new mysqli("localhost", "root", "", "sag");
 			if (mysqli_connect_errno()) {
     			printf("Connect failed: %s\n", mysqli_connect_error());
     			exit();
