@@ -1,4 +1,3 @@
-input
 <?php
 session_start();
 include 'conexion.php';
@@ -209,12 +208,22 @@ ${demo.css}
                             x: -20
                         },
                         xAxis: {
-                            categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                                'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                            categories: [
+                            	<?php 
+                            		$sql= "SELECT * FROM tbl_productos";
+                            		$result = mysql_query(getConexion(),$sql);
+                            		while ($registros=mysql_fetch_array($result)) {
+                            			?>
+                            			'<?php echo $registros["fecha_ingreso_producto"] ?>',
+                            			<?php
+                            		}
+
+                            		?>
+                            ]
                         },
                         yAxis: {
                             title: {
-                                text: 'Temperature (°C)'
+                                text: 'Precio Lps.'
                             },
                             plotLines: [{
                                 value: 0,
@@ -223,7 +232,7 @@ ${demo.css}
                             }]
                         },
                         tooltip: {
-                            valueSuffix: '°C'
+                            valueSuffix: 'Semanas'
                         },
                         legend: {
                             layout: 'vertical',
@@ -232,8 +241,19 @@ ${demo.css}
                             borderWidth: 0
                         },
                         series: [{
-                            name: 'Tokyo',
-                            data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+                            name: 'Precio',
+                            data: [
+                            	<?php 
+                            		$sql= "SELECT * FROM tbl_productos";
+                            		$result = mysql_query(getConexion(),$sql);
+                            		while ($registros=mysql_fetch_array($result)) {
+                            			?>
+                            			<?php echo $registros["precio"] ?>,
+                            			<?php
+                            		}
+
+                            		?>
+                            ]
                         }]
                     });
                 });
