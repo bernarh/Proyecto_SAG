@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.0.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-09-2016 a las 08:46:04
--- Versión del servidor: 10.0.17-MariaDB
--- Versión de PHP: 5.6.14
+-- Tiempo de generación: 08-10-2016 a las 08:34:34
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 7.0.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_bitacora` (
-  `codigo_registro` int(100) NOT NULL,
+  `accion_realizada` varchar(30) NOT NULL,
   `codigo_usuario` int(10) NOT NULL,
   `fecha` datetime NOT NULL,
   `comentario` varchar(10) NOT NULL
@@ -179,7 +179,7 @@ CREATE TABLE `tbl_zonas` (
 -- Indices de la tabla `tbl_bitacora`
 --
 ALTER TABLE `tbl_bitacora`
-  ADD PRIMARY KEY (`codigo_registro`),
+  ADD PRIMARY KEY (`accion_realizada`),
   ADD KEY `codigo_usuario` (`codigo_usuario`);
 
 --
