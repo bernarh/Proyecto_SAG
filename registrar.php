@@ -66,7 +66,7 @@ if(isset($_SESSION['user'])) {?>
 											<ul href="opcion" class="dropdown-menu">
 												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
-												<li><a href="#">Cambiar Contrase&ntilde;a</a></li>
+												<li><a href="cambiarpw.php">Cambiar Contrase&ntilde;a</a></li>
 												<li><a href="#">Mi Perfil</a></li>
 												
 
