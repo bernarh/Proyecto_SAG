@@ -14,6 +14,9 @@ if(isset($_SESSION['user'])) {?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title></title>
 
+		<script src="js/jquery.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 		<style type="text/css">
 ${demo.css}
@@ -69,9 +72,9 @@ ${demo.css}
                                         <li class="dropdown">
                                             <a href="" class="dropdown-toggle active" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="#">Grafico de Barras</a></li>
-                                                <li><a href="#">Grafico de Linea</a></li>
-                                                <li><a href="#">Grafico Circular</a></li>
+                                                <li><a href="grafico_barra.php">Grafico de Barras</a></li>
+                                                <li><a href="grafico_linea.php">Grafico de Linea</a></li>
+                                                <li><a href="grafico_pastel.php">Grafico Circular</a></li>
                                                 <li class="divider"></li>
                                                 <li><a href="#">Grafico Precio Internacional</a></li>
 
@@ -210,11 +213,12 @@ ${demo.css}
                         xAxis: {
                             categories: [
                             	<?php 
+                            		$conexion= new Conexion();
                             		$sql= "SELECT * FROM tbl_productos";
-                            		$result = mysql_query(getConexion(),$sql);
-                            		while ($registros=mysql_fetch_array($result)) {
+                            		$result = mysqli_query($conexion->getConexion(),$sql);
+                            		while ($registros=mysqli_fetch_array($result)) {
                             			?>
-                            			'<?php echo $registros["fecha_ingreso_producto"] ?>',
+                            			'<?php echo $registros["fecha_ingreso_producto"]; ?>',
                             			<?php
                             		}
 
@@ -244,11 +248,13 @@ ${demo.css}
                             name: 'Precio',
                             data: [
                             	<?php 
+                            		$conexion= new Conexion();
+                            		
                             		$sql= "SELECT * FROM tbl_productos";
-                            		$result = mysql_query(getConexion(),$sql);
-                            		while ($registros=mysql_fetch_array($result)) {
+                            		$result = mysqli_query($conexion->getConexion(),$sql);
+                            		while ($registros=mysqli_fetch_array($result)) {
                             			?>
-                            			<?php echo $registros["precio"] ?>,
+                            			'<?php echo $registros["precio"]; ?>',
                             			<?php
                             		}
 
@@ -262,38 +268,17 @@ ${demo.css}
 
     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
     <div class="container">
-    	<input class="btn btn-info
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    	" type="button" name="generar" value="Generar">
+    	<input class="btn btn-info" type="button" name="generar" value="Generar">
     </div>
 
-    <footer class="footer">
+
+	</body>
+	<footer class="footer">
         <div class="row">
             <center><h6>Todos los derechos Reservados @CopyRight</h6></center>
         </div>
         
     </footer>
-	</body>
 </html>
 <?php
 }else{

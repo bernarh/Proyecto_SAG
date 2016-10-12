@@ -6,7 +6,7 @@
 
 		function __construct()
 		{
-			$this->conect = new mysqli("localhost", "root", "", "procacaho_db");
+			$this->conect = new mysqli("localhost", "root","", "procacaho_db");
 		}
 		
 		public function getConexion(){
@@ -14,7 +14,7 @@
 		}
 
 		public function cerrarConexion(){
-			mysqli__close($this->conect);
+			mysqli_close($this->conect);
 		}
 
 
