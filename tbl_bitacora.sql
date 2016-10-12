@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-10-2016 a las 08:32:35
+-- Tiempo de generación: 12-10-2016 a las 05:22:15
 -- Versión del servidor: 10.1.16-MariaDB
 -- Versión de PHP: 7.0.9
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `procacaho_db`
+-- Base de datos: `prueba_db`
 --
 
 -- --------------------------------------------------------
@@ -27,10 +27,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tbl_bitacora` (
-  `accion_realizada` varchar(30) NOT NULL,
+  `codigo_registro` int(10) NOT NULL,
   `codigo_usuario` int(10) NOT NULL,
   `fecha` datetime NOT NULL,
-  `comentario` varchar(10) NOT NULL
+  `accion_realizada` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -41,19 +41,17 @@ CREATE TABLE `tbl_bitacora` (
 -- Indices de la tabla `tbl_bitacora`
 --
 ALTER TABLE `tbl_bitacora`
-  ADD PRIMARY KEY (`accion_realizada`),
-  ADD KEY `codigo_usuario` (`codigo_usuario`);
+  ADD PRIMARY KEY (`codigo_registro`);
 
 --
--- Restricciones para tablas volcadas
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- Filtros para la tabla `tbl_bitacora`
+-- AUTO_INCREMENT de la tabla `tbl_bitacora`
 --
 ALTER TABLE `tbl_bitacora`
-  ADD CONSTRAINT `tbl_bitacora_ibfk_1` FOREIGN KEY (`codigo_usuario`) REFERENCES `tbl_usuarios` (`codigo_usuario`) ON DELETE CASCADE ON UPDATE CASCADE;
-
+  MODIFY `codigo_registro` int(10) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
