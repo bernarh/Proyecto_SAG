@@ -32,7 +32,7 @@
 		<br>
 	
 		<div class="container row " id="caja">
-			<center><h1 id="login">Login</h1></center>
+			<center><h1 id="login">Bienvenido</h1></center>
 		<form action="validar.php" method="post">
 			<input id="inputext" type="text" name="user" required placeholder="USERNAME"/>
 			<input id="inputext" type="password" name="pw" required placeholder="PASS"/>

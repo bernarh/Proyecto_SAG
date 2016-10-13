@@ -12,11 +12,14 @@
 <body>
 		<?php
 			require_once( 'usuario.php');
+			
 			if(isset($_POST['login'])){
 				$usuario= new Usuario($_POST['user'],$_POST['pw']);
 				$usuario->autenticar();
-				if ($usuario->getUser()!=null) {
-					$_SESSION["user"] = $usuario->getUser(); 
+				if ($usuario->getCodigoTipoUsuario()!=null) {
+					$_SESSION["user"] = $usuario->getUser();
+					$_SESSION["codigotipousuario"] = $usuario->getCodigoTipoUsuario();
+					$_SESSION["codigousuario"] = $usuario->getCodigoUsuario();
 				  	echo 'Iniciando sesión para '.$_SESSION['user'].' <p>';
 				  	if ($usuario->getCodigoTipoUsuario()==1){
 						echo '<script> window.location="menuadministrador.php"; </script>';
