@@ -35,6 +35,9 @@ ${demo.css}
 
         <script src="https://code.highcharts.com/highcharts.js"></script>
         <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="highcharts/js/modules/offline-exporting.js"></script>
+        <script src="highcharts/js/jquery.min.js"></script>
+        <script src="highcharts/js/highcharts.js"></script>
         <header>
                     <div class="row">
                         <div class="container-fluid" id="logos">
