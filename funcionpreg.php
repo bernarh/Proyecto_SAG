@@ -1,0 +1,13 @@
+<?php
+function ValidacionUsername($texto)
+{
+$n= preg_replace('/[^a-zA-ZáéíóúÁÉÍÓÚñÑñÜü_]/','',$texto);
+return $n;
+}
+function ValidacionPass($texto)
+{
+$n= preg_replace('/[^a-zA-ZáéíóúÁÉÍÓÚñÑñÜü_@0-9]/','',$texto);
+return $n;
+}
+
+?>

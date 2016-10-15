@@ -1,7 +1,6 @@
 <?php
 session_start();
 include 'conexion.php';
-
 if(isset($_SESSION['user'])) {?>
 <!DOCTYPE HTML>
 <html>

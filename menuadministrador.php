@@ -17,7 +17,7 @@ if(isset($_SESSION['user'])) {?>
 			<div class="row">
 				<div class="container-fluid" id="logos">
 					<div class="">
-						<img class="col-xs-10 col-sm-10 col-md-10"src="imagenes/logos.png">
+						<img class="col-xs-10 col-sm-10 col-md-10" src="imagenes/logos.png">
 					</div>					
 					<div class="clearfix visible-xs-block"></div>
 					<div class="clearfix visible-sm-block"></div>
@@ -64,7 +64,7 @@ if(isset($_SESSION['user'])) {?>
 											<ul href="opcion" class="dropdown-menu">
 												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
-												<li><a href="cambiarpw.php">Cambiar Contrase&ntilde;a</a></li>
+												<li><a href="#">Cambiar Contrase&ntilde;a</a></li>
 												<li><a href="#">Mi Perfil</a></li>
 												
 
@@ -148,7 +148,7 @@ if(isset($_SESSION['user'])) {?>
 						<div class="modal-body">
 							<!--formulario -nuevo registro -->
 							<div class="container">
-								<form action="" class="form-horizontal">
+								<form action="insertar.php" class="form-horizontal">
 									<div class="form-group">
 										<label class="control-label col-md-2" for="nomtec">Nombres del Usuario:</label>
 										<div class="col-md-4">
@@ -197,6 +197,18 @@ if(isset($_SESSION['user'])) {?>
 											<input class="form-control" id="nomtec" type="email" placeholder="correo electr&oacute;nico">
 										</div>
 									</div>
+									<div class="form-group">
+										<label class="control-label col-md-2" for="tipop">Tipo de Usuario:</label>
+										<div class="col-md-4">
+											<select class="form-control" value="" id="tipop">
+												<option value="">--Opci&oacute;n--</option>
+												<option value="">Administrador</option>
+												<option value="">T&eacute;cnico</option>
+												<option value="">Supervidor</option>
+											</select>
+										</div>
+									</div>
+
 									<div class="form-group">
 										<label class="control-label col-md-2" for="tipop">Tipo de Usuario:</label>
 										<div class="col-md-4">

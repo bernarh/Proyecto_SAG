@@ -13,10 +13,7 @@ if(isset($_SESSION['user'])) {?>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title></title>
 
-		<script src="js/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
 		<style type="text/css">
 ${demo.css}
 		</style>
@@ -31,81 +28,10 @@ ${demo.css}
 	</head>
 	<body>
 
-<script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="js/highcharts.js"></script>
+<script src="js/modules/exporting.js"></script>
 <header>
-            <div class="row">
-                <div class="container-fluid" id="logos">
-                    <div class="">
-                        <img class="col-xs-10 col-sm-10 col-md-10"src="imagenes/logos.png">
-                    </div>                  
-                    <div class="clearfix visible-xs-block"></div>
-                    <div class="clearfix visible-sm-block"></div>
-                    <br>        
-                </div>
-                <div class="container-fluid">
-                    <nav class="navbar navbar-default ">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
-                                        <span class="sr-only">Menu</span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </button>
-
-                                    
-                                    <a class="navbar-brand">
-                                        <img id="icono" alt="Brand" src="imagenes/cacao.ico">
-                                    </a>
-                                    <a href="#icono" class="navbar-brand">PROCACAHO</a>
-                                    
-                                </div>
-
-                                <div class="collapse navbar-collapse" id="navbar-1">
-                                    <ul class="nav navbar-nav">
-                                        <li><a href="registrar.php">Registrar</a></li>
-                                        <li ><a href="">Nuevo Productor</a></li>
-                                        <li><a href="">Ver Datos</a></li>
-                                        <li><a href="">Reportes</a></li>
-                                        <li class="dropdown">
-                                            <a href="" class="dropdown-toggle active" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="grafico_barra.php">Grafico de Barras</a></li>
-                                                <li><a href="grafico_linea.php">Grafico de Linea</a></li>
-                                                <li><a href="grafico_pastel.php">Grafico Circular</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Grafico Precio Internacional</a></li>
-
-                                            </ul>
-                                        </li>
-                                        <li class="dropdown ">
-                                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Opci&oacute;n<span class="caret"></span></a>           
-                                            <ul href="opcion" class="dropdown-menu">
-                                                <li><a href="#">Cerrar Sesi&oacute;n</a></li>
-                                                <li class="divider"></li>
-                                                <li><a href="#">Cambiar Contrase&ntilde;a</a></li>
-                                                <li><a href="#">Mi Perfil</a></li>
-                                                
-
-                                            </ul>
-                                        </li>
-
-
-                                    </ul>
-
-                                    <form action="" class="navbar-form navbar-right hidden-sm" role="search">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control " placeholder="Buscar">
-
-                                        </div>
-
-                                    </form>
-                                </div>
-                            </div>
-                    </nav>
-                </div>
-            </div>
+          <?php include('menu/menutecnico.php') ?>
 </header>
 
         <!--filtros para el grafico-->
@@ -212,12 +138,12 @@ ${demo.css}
                         xAxis: {
                             categories: [
                             	<?php 
-                            		$conexion= new Conexion();
+                                    $conexion= new Conexion();
                             		$sql= "SELECT * FROM tbl_productores_x_producto";
                             		$result = mysqli_query($conexion->getConexion(),$sql);
                             		while ($registros=mysqli_fetch_array($result)) {
                             			?>
-                            			'<?php echo $registros["fecha_ingreso_producto"]; ?>',
+                            			'<?php echo $registros["fecha_ingreso_producto"] ?>',
                             			<?php
                             		}
                             		?>
@@ -246,13 +172,11 @@ ${demo.css}
                             name: 'Precio',
                             data: [
                             	<?php 
-                            		$conexion= new Conexion();
-                            		
                             		$sql= "SELECT * FROM tbl_productores_x_producto";
                             		$result = mysqli_query($conexion->getConexion(),$sql);
                             		while ($registros=mysqli_fetch_array($result)) {
                             			?>
-                            			'<?php echo $registros["precio"]; ?>',
+                            			<?php echo $registros["precio"] ?>,
                             			<?php
                             		}
                             		?>
@@ -265,17 +189,17 @@ ${demo.css}
 
     <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
     <div class="container">
-    	<input class="btn btn-info" type="button" name="generar" value="Generar">
+    	<input class="btn btn-info
+    	" type="button" name="generar" value="Generar">
     </div>
 
-
-	</body>
-	<footer class="footer">
+    <footer class="footer">
         <div class="row">
             <center><h6>Todos los derechos Reservados @CopyRight</h6></center>
         </div>
         
     </footer>
+	</body>
 </html>
 <?php
 }else{
