@@ -1,11 +1,12 @@
 <?php 
 	require_once("conexion.php");
+	include 'funcionpreg.php';
 	class Usuario
 	{
 		private $user="";
 		private $pw="";
 		private $codigoTipoUsuario="";
-		
+		private $codigoUsuario="";
 		function __construct($user,$pw)
 		{
 			$this->user=$user;
@@ -13,15 +14,19 @@
 		}
 
 		public function autenticar(){
-			$mysqli = new mysqli("localhost", "root", "", "sag");
+			$this->user=ValidacionUsername($_POST['user']);
+			$this->pw=validacionPass($_POST['pw']);
+			$conexion= new Conexion();
+			$mysqli= $conexion->getConexion();
 			if (mysqli_connect_errno()) {
     			printf("Connect failed: %s\n", mysqli_connect_error());
     			exit();
-			}	
-			if ($stmt = $mysqli->prepare("SELECT USER, PW, TIPO_USUARIO FROM TBL_USUARIO WHERE USER = ? AND PW = ? ")){
+			}
+
+			if ($stmt = $mysqli->prepare("SELECT CODIGO_USUARIO, USER, PW, CODIGO_TIPO_USUARIO FROM TBL_USUARIOS WHERE USER = ? AND PW = ? ")){
 				$stmt->bind_param("ss",$this->user,$this->pw);
 				$stmt->execute();
-				$stmt->bind_result($this->user,$this->pw,$this->codigoTipoUsuario);
+				$stmt->bind_result($this->codigoUsuario,$this->user,$this->pw,$this->codigoTipoUsuario);
 				$stmt->fetch();
 			}
 		}
@@ -33,6 +38,14 @@
 
 		public function getUser(){
 			return $this->user;
+		}
+
+		public function setCodigoUser($codigoUsuario){
+			$this->codigoUsuario=$codigoUsuario;
+		}	
+
+		public function getCodigoUsuario(){
+			return $this->codigoUsuario;
 		}
 
 		public function setPw($pw){
