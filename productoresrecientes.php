@@ -23,7 +23,7 @@
 		$total_pages = ceil($numrows/$per_page);
 		$reload = 'index.php';
 		//consulta principal para recuperar los datos
-		$query = mysqli_query($con,"SELECT pxp.codigo_producto, pxp.cantidad, pxp.precio, pxp.fecha_ingreso_producto, p.descripcion_producto, ptr.nombre_productor FROM tbl_productores_x_producto pxp inner join tbl_productos p on (pxp.codigo_producto= p.codigo_producto) inner join tbl_productores ptr on (pxp.codigo_productor= ptr.codigo_productor) WHERE pxp.codigo_usuario= '".$_SESSION['codigousuario']."' order by pxp.fecha_ingreso_producto desc limit 5");
+		$query = mysqli_query($con,"SELECT codigo_productor, nombre_productor, telefono, codigo_zona, codigo_municipio, ubicacion_exacta, fecha_ingreso_productor, codigo_usuario FROM tbl_productores WHERE codigo_usuario= '".$_SESSION['codigousuario']."' order by fecha_ingreso_productor desc limit 5");
 		
 		if ($numrows>0){
 			?>
@@ -33,13 +33,12 @@
 		<div class="table-responsive">
 			  <thead>
 				<tr class="success" >
-					<th>C&oacute;digo Producto</th>
-					<th>Tipo de Producto</th>
-					<th>Fecha de ingreso</th>
+					<th>C&oacute;digo Productor</th>
 					<th>Nombre Productor</th>
-					<th>Precio</th>
-					<th>Volumen</th>
-					<th>Actividad</th>
+					<th>Telefono</th>
+					<th>Fecha de ingreso</th>
+					<th>ubicacion_exacta</th>
+					<th>Codigo Zona</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -47,16 +46,12 @@
 			while($row = mysqli_fetch_array($query)){
 				?>
 				<tr class="success">
-					<td><?php echo $row['codigo_producto'];?></td>
-					<td><?php echo $row['descripcion_producto'];?></td>
-					<td><?php echo $row['fecha_ingreso_producto'];?></td>
+					<td><?php echo $row['codigo_productor'];?></td>
 					<td><?php echo $row['nombre_productor'];?></td>
-					<td><?php echo $row['precio'];?></td>
-					<td><?php echo $row['cantidad'];?></td>
-					<td>
-						<button type="button" class="btn btn-info" data-toggle="modal" data-target="#dataUpdate" data-codigo="<?php echo $row['codigo_producto']?>" data-descripcion="<?php echo $row['descripcion_producto']?>" data-nombre=" <?php echo $row['nombre_productor']?>" ><i class='glyphicon glyphicon-edit'></i></button>
-						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#dataDelete" data-id="<?php echo $row['codigo_producto']?>"  ><i class='glyphicon glyphicon-trash'></i></button>
-					</td>
+					<td><?php echo $row['telefono'];?></td>
+					<td><?php echo $row['fecha_ingreso_productor'];?></td>
+					<td><?php echo $row['ubicacion_exacta'];?></td>
+					<td><?php echo $row['codigo_zona'];?></td>
 				</tr>
 				<?php
 			}

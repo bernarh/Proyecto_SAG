@@ -26,6 +26,16 @@
 					}else if ($usuario->getCodigoTipoUsuario()==2){
 						echo '<script> window.location="menusupervisor.php"; </script>';
 					}else if ($usuario->getCodigoTipoUsuario()==3){
+
+$hostname ="localhost";
+$username= "root";
+$pass="";
+$db="prueba_db";
+$accion="Ingreso";
+$fecha=date("dd/mm/YYYY");
+$connect=mysqli_connect($hostname,$username,$pass,$db);
+$query= "INSERT INTO tbl_bitacora values('','".$_SESSION['user']."',now(),'$accion')";
+$result= mysqli_query($connect,$query);
 						echo '<script> window.location="registrar.php"; </script>';
 					}
 				} else{

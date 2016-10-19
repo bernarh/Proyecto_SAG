@@ -91,6 +91,7 @@
 			$query_update = mysqli_query($con,$sql);
 				if ($query_update){
 					$messages[] = "Los datos han sido guardados satisfactoriamente.";
+					
 				} else{
 					$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 				}

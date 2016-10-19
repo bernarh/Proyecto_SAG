@@ -33,7 +33,7 @@
 											<li><a href="">Ver Datos</a></li>
 											<li><a href="">Reportes</a></li>
 											<li class="dropdown">
-												<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
 												<ul class="dropdown-menu">
 													<li><a href="graficos.php">Grafico de Barras</a></li>
 													<li><a href="#">Grafico de Linea</a></li>

@@ -18,6 +18,9 @@ if(isset($_SESSION['user']) and ($_SESSION['codigotipousuario']===3)) {?>
 
 		<header>
 			<?php include('menu/menutecnico.php') ?>
+			<?php include("modal_new_productor/modal_agregar.php");?>
+	  		<?php include("modal_new_productor/modal_modificar.php");?>
+	  		<?php include("modal_new_productor/modal_eliminar.php");?>
 		</header>
 
 		<br>
@@ -25,118 +28,36 @@ if(isset($_SESSION['user']) and ($_SESSION['codigotipousuario']===3)) {?>
 			<center><h3>Lista de Productores Registrados</h3></center>
 		</div>
 
-		<!--Lista de productores en la base de datos -->
-		<div class="container list-group">
-			<a href="#" class="list-group-item active b" data-toggle="modal" data-target="#nuevoregistro">Elija una de las opciones</a>
-			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Nuevo Productor</a>
-			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Morbi leo risus</a>
-			<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Porta ac consectetur ac</a>
-			<a  class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Vestibulum at eros</a>
-		</div>
-		<br>
-		<!--boton que accede a ventana modal -->
-		<div class="container">
-			<!--boton que accede a ventana modal -->
-			
-			<div class="modal fade" id="nuevoregistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-				<!--Ventana modal (inicio) -nuevo registro -->
-				<div class="modal-dialog">
-					<div class="modal-content">
-						<div class="modal-header">
-							<button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
-							<h4>Nuevo Productor:</h4>
-						</div>
-
-						<div class="modal-body">
-							<!--formulario -nuevo registro -->
-							<div class="container">
-								<form action="" class="form-horizontal">
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Elija La Ruta:</label>
-										<div class="col-md-4">
-										<select class="form-control" value="" id="tipop">
-											<option value="">--Opci&oacute;n--</option>
-											<option value="">Ruta 1</option>
-											<option value="">Ruta 2</option>
-											<option value="">Ruta 3</option>
-											<option value="">Ruta 4</option>
-										</select>
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Elija El Municipio:</label>
-										<div class="col-md-4">
-										<select class="form-control" value="" id="tipop">
-											<option value="">--Opci&oacute;n--</option>
-											<option value="">Municipio 1</option>
-											<option value="">Municipio 2</option>
-											<option value="">Municipio 3</option>
-											<option value="">Municipio 4</option>
-										</select>
-										</div>
-									</div>
-									<div class="form-group">
-
-										<label class="control-label col-md-2" for="nomtec">Nombre del Productor:</label>
-
-										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="text" placeholder="Nombre del Productor">
-										</div>
-									</div>
-									<div class="form-group">
-
-										<label class="control-label col-md-2" for="nomtec">Ubicaci&oacute;n:</label>
-
-										<div class="col-md-4">
-											<input class="form-control" id="nomtec" type="text" placeholder="Ubicaci&oacute;n">
-										</div>
-									</div>
-
-									<div class="form-group">
-
-										<label class="control-label col-md-2" for="zona">No:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="zona" type="number" placeholder="Zona">
-										</div>
-										
-									</div>
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tel">Tel&eacute;fono:</label>
-										<div class="col-md-4">
-											<input class="form-control" id="hoja" type="number" placeholder="Tel&eacute;fono">
-										</div>
-
-									</div>
-
-									<div class="form-group">
-										<label class="control-label col-md-2" for="tipop">Elija El Supervisor de la Zona:</label>
-										<div class="col-md-4">
-										<select class="form-control" value="" id="tipop">
-											<option value="">--Opci&oacute;n--</option>
-											<option value="">Supervisor 1</option>
-											<option value="">Supervisor 2</option>
-											<option value="">Supervisor 3</option>
-											<option value="">Supervisor 4</option>
-										</select>
-										</div>
-									</div>
-								</form>
-							</div>
-						</div>
-
-						<div class="modal-footer">
-							<button type="button" class="btn btn-default " data-dismiss="modal">Cerrar</button>
-							<button type="submit" class="btn btn-success" data-dismiss="modal">Enviar</button>
-						</div>
-
-					</div>
+				<!--Lista de productores en la base de datos -->
+				<div class="container list-group">
+					<a href="#" class="list-group-item active b" data-toggle="modal" data-target="#nuevoregistro">Elija una de las opciones</a>
+					<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#dataRegister">Nuevo Productor</a>
+					<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Editar Produtor</a>
+					<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Eliminar productor</a>
 				</div>
-				<!--Ventana modal (fin) -nuevo registro -->
-
+		<br>
 			</div>
 		</div>
 	<script src="js/jquery.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<div class="row">
+			<div class="col-xs-12">
+			<div id="loader" class="text-center"> <img src="imagenes/loader.gif"></div>
+			<div class="datos_ajax_delete"></div><!-- Datos ajax Final -->
+			<div class="outer_div"></div><!-- Datos ajax Final -->
+			</div>
+		  </div>
+		</div>
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="js/jquery-3.1.1.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="js/bootstrap.min.js" ></script>
+		<script src="js/appnewproductor.js"></script>
+		<script>
+			$(document).ready(function(){
+				load(1);
+			});
+		</script>
 	</body>
 
 	<footer class="footer">

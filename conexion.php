@@ -61,7 +61,7 @@
 		/* consulta para combobox tipo productos en registro.php */
 		public function llenarProductos(){
 			/* crear una sentencia preparada */
-			if ($stmt = $this->conect->prepare("SELECT p.codigo_producto,p.descripcion_producto, tc.nombre_tipo_cacao FROM tbl_productos p inner join tbl_tipos_de_cacao tc on (p.codigo_producto=tc.codigo_tipo_cacao) order by codigo_producto asc")) {
+			if ($stmt = $this->conect->prepare("SELECT p.codigo_producto,p.descripcion_producto, tc.nombre_tipo_cacao FROM tbl_productos p left join tbl_tipos_de_cacao tc on (p.codigo_tipo_cacao=tc.codigo_tipo_cacao) order by codigo_producto asc")) {
 
     			/* ejecutar la consulta */
     			$stmt->execute();
@@ -93,6 +93,20 @@
    			}
    			return null;
 		}
+
+		/* consulta para combobox municipio en new_productor.php */
+		public function llenarMunicipio(){
+			/* crear una sentencia preparada */
+			if ($stmt = $this->conect->prepare("SELECT codigo_municipio, nombre_municipio FROM tbl_municipios ")) {
+
+    			/* ejecutar la consulta */
+    			$stmt->execute();
+   				return $stmt->get_result();
+   			}
+   			return null;
+		}
+
+
 	}
 	
 ?>
