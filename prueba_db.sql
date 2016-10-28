@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-10-2016 a las 05:04:59
+-- Tiempo de generación: 28-10-2016 a las 05:42:20
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `tbl_bitacora` (
   `fecha` datetime NOT NULL,
   `accion` varchar(20) NOT NULL,
   PRIMARY KEY (`codigo_registro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Volcado de datos para la tabla `tbl_bitacora`
@@ -54,7 +54,10 @@ INSERT INTO `tbl_bitacora` (`codigo_registro`, `nombre_usuario`, `fecha`, `accio
 (15, 'atecnico', '2016-10-17 12:56:43', 'Ingreso'),
 (16, 'atecnico', '2016-10-17 18:15:00', 'Ingreso'),
 (17, 'atecnico', '2016-10-17 18:28:00', 'Cerro Sesion'),
-(18, 'atecnico', '2016-10-17 18:28:08', 'Ingreso');
+(18, 'atecnico', '2016-10-17 18:28:08', 'Ingreso'),
+(19, 'atecnico', '2016-10-25 23:05:07', 'Ingreso'),
+(20, 'atecnico', '2016-10-26 00:08:37', 'Ingreso'),
+(21, 'atecnico', '2016-10-26 00:09:28', 'Ingreso');
 
 -- --------------------------------------------------------
 
@@ -138,18 +141,21 @@ CREATE TABLE IF NOT EXISTS `tbl_productores_x_producto` (
   `fecha_ingreso_producto` datetime NOT NULL,
   `codigo_tipo_produccion` int(11) NOT NULL,
   `codigo_usuario` int(11) NOT NULL,
-  `comentario` text NOT NULL
+  `comentario` text NOT NULL,
+  `fecha_recoleccion` datetime NOT NULL,
+  `codigo_tipo_transaccion` int(11) NOT NULL,
+  `codigo_punto_recoleccion` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tbl_productores_x_producto`
 --
 
-INSERT INTO `tbl_productores_x_producto` (`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`, `codigo_usuario`, `comentario`) VALUES
-(1, 1, 12, 10.00, '2016-10-16 11:26:51', 1, 4, 'qwe'),
-(3, 2, 10, 10.00, '2016-10-17 12:57:56', 1, 4, '1234'),
-(2, 1, 100, 66.00, '2016-10-17 12:59:49', 2, 4, 'primer envio'),
-(2, 2, 100, 12.00, '2016-10-17 18:16:59', 1, 4, 'ninguno');
+INSERT INTO `tbl_productores_x_producto` (`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`, `codigo_usuario`, `comentario`, `fecha_recoleccion`, `codigo_tipo_transaccion`, `codigo_punto_recoleccion`) VALUES
+(1, 1, 12, 10.00, '2016-10-16 11:26:51', 1, 4, 'qwe', '0000-00-00 00:00:00', 0, 0),
+(3, 2, 10, 10.00, '2016-10-17 12:57:56', 1, 4, '1234', '0000-00-00 00:00:00', 0, 0),
+(2, 1, 100, 66.00, '2016-10-17 12:59:49', 2, 4, 'primer envio', '0000-00-00 00:00:00', 0, 0),
+(2, 2, 100, 12.00, '2016-10-17 18:16:59', 1, 4, 'ninguno', '0000-00-00 00:00:00', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -194,6 +200,28 @@ INSERT INTO `tbl_productos` (`codigo_producto`, `descripcion_producto`, `codigo_
 (4, 'FERMENTADO SECO', 1),
 (5, 'FERMENTADO SECO', 2),
 (6, 'SECO SIN FERMENTAR', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tbl_punto_recoleccion`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_punto_recoleccion` (
+  `codigo_punto_recoleccion` int(11) NOT NULL AUTO_INCREMENT,
+  `punto_recoleccion` varchar(50) NOT NULL,
+  PRIMARY KEY (`codigo_punto_recoleccion`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `tbl_punto_recoleccion`
+--
+
+INSERT INTO `tbl_punto_recoleccion` (`codigo_punto_recoleccion`, `punto_recoleccion`) VALUES
+(1, 'PRODUCTOR'),
+(2, 'EMPRESA ORGANIZADA'),
+(3, 'MAYORISTA'),
+(4, 'INTERMEDIARIO');
 
 -- --------------------------------------------------------
 
