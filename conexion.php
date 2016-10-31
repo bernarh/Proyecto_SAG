@@ -106,6 +106,12 @@
    			return null;
 		}
 
+		public function fechaNormal($fecha){
+			$nfecha = date('d/m/Y',strtotime($fecha));
+			return $nfecha;
+
+		}
+
 
 	}
 	

@@ -2,7 +2,49 @@
 session_start();
 include 'conexion.php';
 
-if(isset($_SESSION['user'])) {?>
+if(isset($_SESSION['user'])) {
+
+    $where=" ";
+      
+   if (isset($_POST["xruta"])){
+      $zona=$_POST['xruta'];
+    } 
+    if (isset($_POST["bd-desde"])){
+      $fechaini=$_POST['bd-desde'];
+    } 
+    if (isset($_POST["bd-hasta"])){
+      $fechafin=$_POST['bd-hasta'];
+    } 
+
+
+    if(isset($_POST['Buscar'])){
+        if(empty($_POST['xruta']) and empty($_POST['bd-desde'])){
+            $where="where A.fecha_ingreso_producto <= '".$fechafin."' ";
+                                                   
+
+        }else if(empty($_POST['bd-hasta']) and empty($_POST['xruta'])){
+            $where="where A.fecha_ingreso_producto >= '".$fechaini."' ";
+            
+            
+              }else if(empty($_POST['bd-hasta']) and empty($_POST['bd-desde'])){
+                        $where= "where I.ubicacion='".$zona."' ";
+
+                    }else if(empty($_POST['xruta']) ){
+                               $where="where A.fecha_ingreso_producto between '".$fechaini."' AND '".$fechafin."' ";
+
+                            }else if(empty($_POST['bd-desde']) ){
+                                        $where="where I.ubicacion='".$zona."' AND A.fecha_ingreso_producto <= '".$fechafin."' ";
+
+                                    }else if(empty($_POST['bd-hasta']) ){
+                                               $where="where I.ubicacion='".$zona."' AND A.fecha_ingreso_producto >= '".$fechaini."' ";
+
+                                            }else {
+                                                        $where="where I.ubicacion='".$zona."' AND A.fecha_ingreso_producto between '".$fechaini."' AND '".$fechafin."' ";
+                                                        
+                                                    }
+    }
+
+?>
 <!doctype html>
 <html>
 	<head>
@@ -10,6 +52,7 @@ if(isset($_SESSION['user'])) {?>
 		<meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/Style.css">
+        <script src="js/jquery-3.1.1.min.js"></script>
 
         <!--función para eliminar filas de una tabla-->
         <script type="text/javascript" language="javascript">
@@ -49,8 +92,10 @@ if(isset($_SESSION['user'])) {?>
                }
 
           }
+          
 
         </script>
+
 		
 	</head>
 
@@ -134,35 +179,45 @@ if(isset($_SESSION['user'])) {?>
 
         <!--filtros para el reporte-->
                 <div class="container row">
-                    <form action="" class="form-horizontal">
+                    <form method="POST" class="form-horizontal">
                         
-                        <div class="col-sm-4 col-md-4">
+                        <div class="col-sm-3 col-md-3">
                             
                             <label class="control-label" for="tipop1">Ruta:</label>
-                            <select class="form-control" value="" id="tipop1">
+                            <select name="xruta" class="form-control" value="" id="tipop1">
                                 <option value="">--Opci&oacute;n--</option>
-                                <option value="">Ruta 1</option>
-                                <option value="">Ruta 2</option>
-                                <option value="">Ruta 3</option>
-                                <option value="">Ruta 4</option>
+                            <?php
+                                    $conexion= new Conexion();
+                                    $sql= " select * from tbl_zonas";
+                                    $result = mysqli_query($conexion->getConexion(),$sql);
+                                    while ($ruta=mysqli_fetch_array($result)) {
+                             
+                                        echo '<option value="'.$ruta['ubicacion'].' ">'.$ruta['ubicacion'].'</option>';
+                            
+                                    }
+                            ?>
                             </select>
                         </div>
-                             <div class="col-sm-4 col-md-4">
+                             <div class="col-sm-3 col-md-3">
                                                 
-                                <label class="control-label" for="fech1">Fecha inicial:</label>
+                                <label class="control-label" for="bd-desde">Fecha inicial:</label>
                                 <div class="">
-                                    <input class="form-control" id="fech1" type="date" >
+                                    <input class="form-control" id="bd-desde" name="bd-desde" type="date" value="" >
                                     
                                 </div>
                             </div>
 
-                            <div class="col-sm-4 col-md-4">
+                            <div class="col-sm-3 col-md-3">
 
-                                <label class="control-label" for="fech2">Fecha final:</label>
+                                <label class="control-label" for="bd-hasta">Fecha final:</label>
                                 <div class="">
-                                    <input class="form-control" id="fech2" type="date" >
+                                    <input class="form-control" id="bd-hasta" name="bd-hasta" type="date" value="" >
                                 </div>
                                 
+                            </div>
+
+                            <div class="col-sm-3 col-md-3">
+                                <button class="btn btn-info " name="Buscar" type="submit">Buscar</button> 
                             </div>
                        
                     
@@ -184,51 +239,63 @@ if(isset($_SESSION['user'])) {?>
 						<th>Punto de recolecci&oacute;n</th>
 						<th>Tipo de transacci&oacute;n</th>
                         <th>Producci&oacute;n</th>
-                        <th>Tipo de produco</th>
+                        <th>Tipo de producto</th>
                         <th>Precio</th>
                         <th>Volumen</th>
                         <th>Comentarios</th>
                         <th>Seleccionar</th>
 					</tr>
-					<tr class="active">
-						<td>23/10/2016</td>
-						<td>Tela, Atlantida</td>
-						<td>informante 1</td>
-						<td>Productor</td>
-						<td>Venta</td>
-                        <td>Convencional</td>
-                        <td>fermentado Seco</td>
-                        <td>50 Lps.</td>
-                        <td>50 Lbs</td>
-                        <td>venta al comercio</td>
-                        <td><input type="checkbox" NAME="chk"/></td>
-					</tr>
-					<tr class="active">
-						<td>24/10/2016</td>
-                        <td>Tela, Atlantida</td>
-                        <td>informante 2</td>
-                        <td>Productor</td>
-                        <td>Venta</td>
-                        <td>Convencional</td>
-                        <td>fermentado Seco</td>
-                        <td>50 Lps.</td>
-                        <td>50 Lbs</td>
-                        <td>venta al comercio</td>
-                        <td><input type="checkbox" NAME="chk1"/></td>
-					</tr>
-					<tr class="active">
-						<td>25/10/2016</td>
-                        <td>Tela, Atlantida</td>
-                        <td>informante 3</td>
-                        <td>Productor</td>
-                        <td>Venta</td>
-                        <td>Convencional</td>
-                        <td>fermentado Seco</td>
-                        <td>50 Lps.</td>
-                        <td>50 Lbs</td>
-                        <td>venta al comercio</td>
-                        <td><input type="checkbox" NAME="chk2"/></td>
-					</tr>
+					
+						<?php
+                            $conexion= new Conexion();
+                            
+                            $sql= "SELECT A.fecha_recoleccion, c.nombre_municipio ,B.nombre_productor, 
+                                    H.punto_recoleccion, D.tipo_transaccion,E.tipo_produccion, 
+                                    CONCAT(F.descripcion_producto,' ',J.nombre_tipo_cacao) as nombre_tipo_cacao , 
+                                    CONCAT('Lps.',' ',A.precio) AS precio, 
+                                    CONCAT(A.cantidad,' ',G.abreviatura) AS volumen, A.comentario 
+                                    FROM tbl_productores_x_producto A 
+                                    INNER JOIN tbl_productores B
+                                    ON (A.codigo_productor=B.codigo_productor)
+                                    INNER JOIN tbl_municipios C 
+                                    ON(B.codigo_municipio=C.codigo_municipio)
+                                    INNER JOIN tbl_tipo_transaccion D 
+                                    ON (A.codigo_tipo_transaccion=D.codigo_tipo_transaccion)
+                                    INNER JOIN tbl_codigo_tipo_produccion E 
+                                    ON (A.codigo_tipo_produccion=E.codigo_tipo_produccion)
+                                    INNER JOIN tbl_productos F 
+                                    ON (A.codigo_producto=F.codigo_producto)
+                                    INNER JOIN tbl_tipos_de_cacao J 
+                                    ON (F.codigo_tipo_cacao=J.codigo_tipo_cacao)
+                                    INNER JOIN tbl_unidad_de_medida G 
+                                    ON (J.codigo_unidad_de_medida=G.codigo_unidad_de_medida)
+                                    INNER JOIN tbl_punto_recoleccion H 
+                                    ON (A.codigo_punto_recoleccion=H.codigo_punto_recoleccion)
+                                    INNER JOIN tbl_zonas I
+                                    ON (B.codigo_zona=I.codigo_zona) $where";
+                                            
+                            
+                            $result = mysqli_query($conexion->getConexion(),$sql);
+                             
+                            while ($registro2=mysqli_fetch_array($result)) {
+                                 
+                                echo '<tr class="active">
+                                    <td>'.$conexion->fechaNormal($registro2['fecha_recoleccion']).'</td>
+                                    <td>'.$registro2['nombre_municipio'].'</td>
+                                    <td>'.$registro2['nombre_productor'].'</td>
+                                    <td>'.$registro2['punto_recoleccion'].'</td>
+                                    <td>'.$registro2['tipo_transaccion'].'</td>
+                                    <td>'.$registro2['tipo_produccion'].'</td>
+                                    <td>'.$registro2['nombre_tipo_cacao'].'</td>
+                                    <td>'.$registro2['precio'].'</td>
+                                    <td>'.$registro2['volumen'].'</td>
+                                    <td>'.$registro2['comentario'].'</td>
+                                    <td><input type="checkbox" name="chk"/></td>
+                                    </tr>';
+                            }
+
+                        ?>
+                        
 				</table>
 			</div>
 			

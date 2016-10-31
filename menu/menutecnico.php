@@ -30,13 +30,13 @@
 										<ul class="nav navbar-nav">
 											<li class="active"><a href="registrar.php">Registrar</a></li>
 											<li><a href="new_productor.php">Nuevo Productor</a></li>
-											<li><a href="">Ver Datos</a></li>
+											<li><a href="ver_datos.php">Ver Datos</a></li>
 											<li><a href="">Reportes</a></li>
 											<li class="dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
 												<ul class="dropdown-menu">
 													<li><a href="graficos.php">Grafico de Barras</a></li>
-													<li><a href="#">Grafico de Linea</a></li>
+													<li><a href="grafico_linea.php">Grafico de Linea</a></li>
 													<li><a href="#">Grafico Circular</a></li>
 													<li class="divider"></li>
 													<li><a href="#">Grafico Precio Internacional</a></li>
