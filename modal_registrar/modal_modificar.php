@@ -9,15 +9,51 @@
       <div class="modal-body">
 			<div id="datos_ajax"></div>
         <div class="form-group">
-            <label for="nombreproductor" class="control-label">Nombre Productor:</label>
-            <input type="text" class="form-control" id="nombreproductor" name="nombreproductor" required maxlength="255">
+            <label for="nombretecnico" class="control-label">Comentario:</label>
+            <input type="text" class="form-control" id="nombretecnico" name="nombretecnico" required maxlength="255">
+          </div> 
+        <div class="form-group">
+            <label for="telefono" class="control-label">Tel&eacute;fono:</label>
+            <input type="text" class="form-control" id="telefono" name="telefono" required maxlength="255" >
           </div>
-          
 		  <div class="form-group">
             <label for="fechaingreso" class="control-label">Fecha Ingreso:</label>
              <input type="text" class="form-control" id="fechaingreso" name="fechaingreso" required maxlength="30" disabled="disabled" value="<?php   echo date('Y-m-j H:i:s'); ?>"> 
           </div>
       <h4 class="modal-title" id="exampleModalLabel">Hoja de recolecci&oacute;n de informaci&oacute;n de comercializaci&oacute;n de productos del cacao:</h4>
+      <div class="form-group">
+            <label for="fecharecoleccion0" class="control-label" >fecha de recolecci&oacute;n:</label>
+
+            <input type="date" class="form-control" id="fecharecoleccion0" name="fecharecoleccion" required maxlength="30"  value=""> 
+        </div>
+        <div class="form-group">
+            <label for="puntorecoleccion" class="control-label">Punto de Recolecci&oacute;n:</label>
+            <select class="form-control" value="" id="puntorecoleccion" name="puntorecoleccion" >
+                      <option value="">--Opci&oacute;n--</option>
+                     <?php
+                        $conexion= new Conexion();
+                        $result= $conexion->llenarPuntoRecoleccion();
+                        while ($myrow = $result->fetch_assoc()) {
+                          echo "<option value='".$myrow['codigo_punto_recoleccion']."'>".$myrow['punto_recoleccion']."</option>";
+                        }
+                        $conexion->cerrarConexion();  
+                      ?>
+                    </select>
+          </div>
+          <div class="form-group">
+            <label for="tipotransaccion" class="control-label">Punto de Recolecci&oacute;n:</label>
+            <select class="form-control" value="" id="tipotransaccion" name="tipotransaccion" >
+                      <option value="">--Opci&oacute;n--</option>
+                     <?php
+                        $conexion= new Conexion();
+                        $result= $conexion->llenarTipoTransaccion();
+                        while ($myrow = $result->fetch_assoc()) {
+                          echo "<option value='".$myrow['codigo_tipo_transaccion']."'>".$myrow['tipo_transaccion']."</option>";
+                        }
+                        $conexion->cerrarConexion();  
+                      ?>
+                    </select>
+          </div>
       <div class="form-group">
             <label for="tipoproduccion" class="control-label">Tipo de Producci&oacute;n:</label>
             <select class="form-control" value="" id="tipoproduccion" name="tipoproduccion" >
@@ -51,8 +87,8 @@
             <input type="text" class="form-control" id="precio" name="precio" required maxlength="30"> 
           </div>
 		  <div class="form-group">
-            <label for="volumen" class="control-label">Volumen del producto:</label>
-            <input type="text" class="form-control" id="volumen" name="volumen" required maxlength="15">
+            <label for="volumenproducto" class="control-label">Volumen del producto:</label>
+            <input type="text" class="form-control" id="volumenproducto" name="volumenproducto" required maxlength="15">
           </div>
           
        <div class="form-group">
@@ -62,7 +98,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Agregar Nuevo precio</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
       </div>
     </div>
   </div>

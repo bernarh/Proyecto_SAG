@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2016 a las 05:42:20
+-- Tiempo de generación: 01-11-2016 a las 04:46:28
 -- Versión del servidor: 5.6.17
 -- Versión de PHP: 5.5.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `tbl_bitacora` (
   `fecha` datetime NOT NULL,
   `accion` varchar(20) NOT NULL,
   PRIMARY KEY (`codigo_registro`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=29 ;
 
 --
 -- Volcado de datos para la tabla `tbl_bitacora`
@@ -57,7 +57,14 @@ INSERT INTO `tbl_bitacora` (`codigo_registro`, `nombre_usuario`, `fecha`, `accio
 (18, 'atecnico', '2016-10-17 18:28:08', 'Ingreso'),
 (19, 'atecnico', '2016-10-25 23:05:07', 'Ingreso'),
 (20, 'atecnico', '2016-10-26 00:08:37', 'Ingreso'),
-(21, 'atecnico', '2016-10-26 00:09:28', 'Ingreso');
+(21, 'atecnico', '2016-10-26 00:09:28', 'Ingreso'),
+(22, 'atecnico', '2016-10-31 18:07:34', 'Ingreso'),
+(23, 'atecnico', '2016-10-31 18:42:48', 'Cerro Sesion'),
+(24, 'atecnico', '2016-10-31 18:44:14', 'Ingreso'),
+(25, 'atecnico', '2016-10-31 18:51:46', 'Ingreso'),
+(26, 'atecnico', '2016-10-31 18:52:20', 'Cerro Sesion'),
+(27, 'atecnico', '2016-10-31 21:45:27', 'Ingreso'),
+(28, 'atecnico', '2016-10-31 21:46:02', 'Cerro Sesion');
 
 -- --------------------------------------------------------
 
@@ -113,19 +120,21 @@ CREATE TABLE IF NOT EXISTS `tbl_productores` (
   `ubicacion_exacta` varchar(50) NOT NULL,
   `fecha_ingreso_productor` datetime NOT NULL,
   `codigo_usuario` int(11) NOT NULL,
+  `estado_productor` int(11) NOT NULL,
   PRIMARY KEY (`codigo_productor`),
   UNIQUE KEY `codigo_productor` (`codigo_productor`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `tbl_productores`
 --
 
-INSERT INTO `tbl_productores` (`codigo_productor`, `nombre_productor`, `telefono`, `correo`, `codigo_zona`, `codigo_municipio`, `ubicacion_exacta`, `fecha_ingreso_productor`, `codigo_usuario`) VALUES
-(1, 'juan', '12344321', 'correo.com', 1, 1, 'ubicacion exacta 1', '2016-10-16 06:18:18', 4),
-(2, 'maria', '12344321', 'correo.com', 2, 1, 'ubicacion 2', '2016-10-16 09:25:28', 4),
-(3, 'mario', '1233', '', 1, 1, 'ubicacion exacta 2', '2016-10-16 11:59:46', 4),
-(4, 'pepito', '12', '', 2, 1, 'ubicacion xxxxxxxx', '2016-10-17 18:19:21', 4);
+INSERT INTO `tbl_productores` (`codigo_productor`, `nombre_productor`, `telefono`, `correo`, `codigo_zona`, `codigo_municipio`, `ubicacion_exacta`, `fecha_ingreso_productor`, `codigo_usuario`, `estado_productor`) VALUES
+(1, 'juan', '12344321', 'correo.com', 2, 1, 'ubicacion exacta 1', '2016-10-16 06:18:18', 4, 0),
+(2, 'jose', '2223434', '2@g.com', 1, 2, 'aldea 1 calle 2', '2016-10-31 02:00:00', 3, 0),
+(3, 'mario', '1233', '', 1, 1, 'ubicacion exacta 2', '2016-10-16 11:59:46', 4, 0),
+(4, 'pepito', '12', '', 2, 1, 'ubicacion xxxxxxxx', '2016-10-17 18:19:21', 4, 0),
+(5, 'mafalda', '1234', 'correo.com', 1, 1, 'ubicacion', '2016-10-31 18:31:54', 4, 0);
 
 -- --------------------------------------------------------
 
@@ -144,18 +153,22 @@ CREATE TABLE IF NOT EXISTS `tbl_productores_x_producto` (
   `comentario` text NOT NULL,
   `fecha_recoleccion` datetime NOT NULL,
   `codigo_tipo_transaccion` int(11) NOT NULL,
-  `codigo_punto_recoleccion` int(11) NOT NULL
+  `codigo_punto_recoleccion` int(11) NOT NULL,
+  `estado_producto` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tbl_productores_x_producto`
 --
 
-INSERT INTO `tbl_productores_x_producto` (`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`, `codigo_usuario`, `comentario`, `fecha_recoleccion`, `codigo_tipo_transaccion`, `codigo_punto_recoleccion`) VALUES
-(1, 1, 12, 10.00, '2016-10-16 11:26:51', 1, 4, 'qwe', '0000-00-00 00:00:00', 0, 0),
-(3, 2, 10, 10.00, '2016-10-17 12:57:56', 1, 4, '1234', '0000-00-00 00:00:00', 0, 0),
-(2, 1, 100, 66.00, '2016-10-17 12:59:49', 2, 4, 'primer envio', '0000-00-00 00:00:00', 0, 0),
-(2, 2, 100, 12.00, '2016-10-17 18:16:59', 1, 4, 'ninguno', '0000-00-00 00:00:00', 0, 0);
+INSERT INTO `tbl_productores_x_producto` (`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`, `codigo_usuario`, `comentario`, `fecha_recoleccion`, `codigo_tipo_transaccion`, `codigo_punto_recoleccion`, `estado_producto`) VALUES
+(1, 1, 75, 100.00, '2016-10-23 02:02:00', 1, 3, 'intermediario 1', '2016-10-22 09:00:00', 1, 2, 0),
+(2, 2, 50, 80.00, '2016-10-25 00:00:00', 2, 3, 'hina', '2016-10-24 12:00:00', 2, 2, 0),
+(3, 3, 150, 120.00, '2016-10-26 07:00:00', 1, 3, 'cooperativa', '2016-10-25 08:00:00', 2, 3, 0),
+(4, 4, 200, 70.00, '2016-10-30 09:00:00', 1, 3, 'cacao', '2016-10-27 00:00:00', 2, 3, 0),
+(3, 4, 200, 120.00, '2016-10-25 02:00:00', 2, 3, 'cooperativa 3', '2016-10-24 10:00:00', 2, 4, 0),
+(2, 1, 250, 90.00, '2016-10-27 04:00:00', 1, 3, 'independiente', '2016-10-26 03:00:00', 1, 3, 0),
+(1, 1, 10, 10.00, '2016-10-31 18:29:23', 2, 4, 'presentacion', '2016-10-31 00:00:00', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -314,17 +327,18 @@ CREATE TABLE IF NOT EXISTS `tbl_usuarios` (
   `direccion` varchar(30) NOT NULL,
   `telefono` varchar(10) NOT NULL,
   `correo` varchar(30) NOT NULL,
-  `codigo_tipo_usuario` int(10) NOT NULL
+  `codigo_tipo_usuario` int(10) NOT NULL,
+  `estado_usuario` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `tbl_usuarios`
 --
 
-INSERT INTO `tbl_usuarios` (`codigo_usuario`, `user`, `pw`, `direccion`, `telefono`, `correo`, `codigo_tipo_usuario`) VALUES
-(1, 'tecnico', '1234', 'direccion1', '12344321', 'correo.com', 1),
-(2, 'tecnico2', '1234', 'direccion2', '12344321', 'correo.com', 3),
-(4, 'atecnico', 'hola', 'direccion3', '12344321', 'correo.com', 3);
+INSERT INTO `tbl_usuarios` (`codigo_usuario`, `user`, `pw`, `direccion`, `telefono`, `correo`, `codigo_tipo_usuario`, `estado_usuario`) VALUES
+(1, 'tecnico', '1234', 'direccion1', '12344321', 'correo.com', 1, 0),
+(2, 'tecnico2', '1234', 'direccion2', '12344321', 'correo.com', 3, 0),
+(4, 'atecnico', 'hola', 'direccion3', '12344321', 'correo.com', 3, 0);
 
 -- --------------------------------------------------------
 

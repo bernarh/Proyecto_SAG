@@ -18,7 +18,11 @@ if(isset($_SESSION['user'])) {
 
 
     if(isset($_POST['Buscar'])){
-        if(empty($_POST['xruta']) and empty($_POST['bd-desde'])){
+        if(empty($_POST['xruta']) and empty($_POST['bd-desde']) and empty($_POST['bd-hasta'])){
+            $where=" ";
+                                                   
+
+        }else if(empty($_POST['xruta']) and empty($_POST['bd-desde'])){
             $where="where A.fecha_ingreso_producto <= '".$fechafin."' ";
                                                    
 
@@ -132,7 +136,7 @@ if(isset($_SESSION['user'])) {
 
 								<div class="collapse navbar-collapse" id="navbar-1">
 									<ul class="nav navbar-nav">
-										<li><a href="">Registrar</a></li>
+										<li><a href="registrar.php">Registrar</a></li>
 										<li><a href="new_productor.php">Nuevo Productor</a></li>
 										<li class="active"><a href="">Ver Datos</a></li>
 										<li><a href="">Reportes</a></li>
@@ -255,23 +259,23 @@ if(isset($_SESSION['user'])) {
                                     CONCAT('Lps.',' ',A.precio) AS precio, 
                                     CONCAT(A.cantidad,' ',G.abreviatura) AS volumen, A.comentario 
                                     FROM tbl_productores_x_producto A 
-                                    INNER JOIN tbl_productores B
+                                    LEFT JOIN tbl_productores B
                                     ON (A.codigo_productor=B.codigo_productor)
-                                    INNER JOIN tbl_municipios C 
+                                    LEFT JOIN tbl_municipios C 
                                     ON(B.codigo_municipio=C.codigo_municipio)
-                                    INNER JOIN tbl_tipo_transaccion D 
+                                    LEFT JOIN tbl_tipo_transaccion D 
                                     ON (A.codigo_tipo_transaccion=D.codigo_tipo_transaccion)
-                                    INNER JOIN tbl_codigo_tipo_produccion E 
+                                    LEFT JOIN tbl_codigo_tipo_produccion E 
                                     ON (A.codigo_tipo_produccion=E.codigo_tipo_produccion)
-                                    INNER JOIN tbl_productos F 
+                                    LEFT JOIN tbl_productos F 
                                     ON (A.codigo_producto=F.codigo_producto)
-                                    INNER JOIN tbl_tipos_de_cacao J 
+                                    LEFT JOIN tbl_tipos_de_cacao J 
                                     ON (F.codigo_tipo_cacao=J.codigo_tipo_cacao)
-                                    INNER JOIN tbl_unidad_de_medida G 
+                                    LEFT JOIN tbl_unidad_de_medida G 
                                     ON (J.codigo_unidad_de_medida=G.codigo_unidad_de_medida)
-                                    INNER JOIN tbl_punto_recoleccion H 
+                                    LEFT JOIN tbl_punto_recoleccion H 
                                     ON (A.codigo_punto_recoleccion=H.codigo_punto_recoleccion)
-                                    INNER JOIN tbl_zonas I
+                                    LEFT JOIN tbl_zonas I
                                     ON (B.codigo_zona=I.codigo_zona) $where";
                                             
                             
@@ -304,6 +308,7 @@ if(isset($_SESSION['user'])) {
 	   <div class="container">
         <input class="btn btn-info" type="button" value="Editar">
         <input class="btn btn-danger" type="button" value="Eliminar" onclick="deleteRow('dataTable');">
+        
        </div>
 
 		<br>

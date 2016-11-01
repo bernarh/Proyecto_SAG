@@ -11,7 +11,7 @@
     }
 	/*Inicia validacion del lado del servidor*/
 	 if (empty($_POST['nombreproductor'])){
-		$errors[] = "nombre tecnico vacío";
+		$errors[] = "nombre productor vacío";
 	} else if (empty($_POST['tipoproduccion'])){
 		$errors[] = "Tipo produccion vacio";
 	} else if (empty($_POST['tipoproducto'])){

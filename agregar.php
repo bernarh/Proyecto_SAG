@@ -1,6 +1,7 @@
 <?php
 	session_start();
 	include 'conexion.php';
+	
 	# conectare la base de datos
     $con=@mysqli_connect('localhost', 'root', '', 'prueba_db');
     if(!$con){
@@ -11,7 +12,7 @@
     }
 	/*Inicia validacion del lado del servidor*/
 	 if (empty($_POST['nombretecnico'])){
-		$errors[] = "nombre tecnico vacío";
+		$errors[] = "nombre productor vacío";
 	} else if (empty($_POST['telefono'])){
 		$errors[] = "telefono vacío";
 	} else if (empty($_POST['puntorecoleccion'])){
@@ -22,6 +23,8 @@
 		$errors[] = "Tipo produccion vacio";
 	} else if (empty($_POST['tipoproducto'])){
 		$errors[] = "Tipo producto vacio";
+	} else if (empty($_POST['fecharecoleccion'])){
+		$errors[] = "Fecha de Recolección vacio";
 	} else if (empty($_POST['precio'])){
 		$errors[] = "Precio del producto vacio";
 	} else if (empty($_POST['volumenproducto'])){
@@ -47,9 +50,7 @@
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$nombretecnico=mysqli_real_escape_string($con,(strip_tags($_POST["nombretecnico"],ENT_QUOTES)));
 		$telefono=mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
-		//$fecharecoleccioni=mysqli_real_escape_string($con,(strip_tags($_POST["fecharecoleccioni"],ENT_QUOTES)));
-		//$fecharecoleccionf=mysqli_real_escape_string($con,(strip_tags($_POST["fecharecoleccionf"],ENT_QUOTES)));
-		//$fechaingreso=mysqli_real_escape_string($con,(strip_tags($_POST["fechaingreso"],ENT_QUOTES)));
+		$fecharecoleccion=mysqli_real_escape_string($con,(strip_tags($_POST["fecharecoleccion"],ENT_QUOTES)));
 		$puntorecoleccion=mysqli_real_escape_string($con,(strip_tags($_POST["puntorecoleccion"],ENT_QUOTES)));
 		$tipotransaccion=mysqli_real_escape_string($con,(strip_tags($_POST["tipotransaccion"],ENT_QUOTES)));
 		$tipoproduccion=mysqli_real_escape_string($con,(strip_tags($_POST["tipoproduccion"],ENT_QUOTES)));
@@ -80,14 +81,8 @@
 		if ($codigoProductor==0){
 			$errors []= "Error no existe el productor que intenta agregar.";
 		}else{
-			// prepare and bind
-			/*$stmt = $conn->prepare("INSERT INTO `tbl_productores_x_producto`(`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`) VALUES  (?,?,?,?,?,?)");
-			$stmt->bind_param("iiidsi", $codigoProductor,$tipoproducto, $volumenproducto,$precio,$fechaingreso,$tipoproduccion);
-
-			// set parameters and execute
-			$stmt->execute();
-			*/
-			$sql="INSERT INTO `tbl_productores_x_producto`(`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`, `codigo_usuario`, `comentario`) VALUES  ('".$codigoProductor."','".$tipoproducto."','".$volumenproducto."','".$precio."',now(),'".$tipoproduccion."','".$_SESSION['codigousuario']."','".$comentario."')";
+			
+			$sql="INSERT INTO `tbl_productores_x_producto`(`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`, `codigo_usuario`, `comentario`, `fecha_recoleccion`, `codigo_tipo_transaccion`, `codigo_punto_recoleccion`) VALUES  ('".$codigoProductor."','".$tipoproducto."','".$volumenproducto."','".$precio."',now(),'".$tipoproduccion."','".$_SESSION['codigousuario']."','".$comentario."','".$fecharecoleccion."','".$tipotransaccion."','".$puntorecoleccion."')";
 			$query_update = mysqli_query($con,$sql);
 				if ($query_update){
 					$messages[] = "Los datos han sido guardados satisfactoriamente.";

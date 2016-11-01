@@ -47,7 +47,10 @@
             <label for="telefono0" class="control-label">Tel&eacute;fono:</label>
             <input type="text" class="form-control" id="telefono0" name="telefono" required maxlength="20">
           </div>
-       <div class="form-group">
+      <div class="form-group">
+            <label for="correo0" class="control-label">correo:</label>
+            <input type="text" class="form-control" id="correo0" name="correo" required maxlength="50">
+          </div>
 
        <div class="form-group">
             <label for="ubicacion0" class="control-label">Ubicaci&oacute;n:</label>
@@ -65,5 +68,6 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 </form>

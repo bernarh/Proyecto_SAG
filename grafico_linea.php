@@ -92,6 +92,9 @@ if(isset($_SESSION['user'])) {
         <script src="js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+
+        
 		<style type="text/css">
 ${demo.css}
 		</style>
@@ -110,6 +113,8 @@ ${demo.css}
 
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script type="text/javascript" src="js/highcharts.js"></script>
+<script type="text/javascript" src="js/modules/exporting.js "></script>
 <header>
             <div class="row">
                 <div class="container-fluid" id="logos">

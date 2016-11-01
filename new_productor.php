@@ -7,11 +7,14 @@ if(isset($_SESSION['user']) and ($_SESSION['codigotipousuario']===3)) {?>
 <!doctype html>
 <html>
 	<head>
-		
-		<meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+		<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <title>Agregar Productores </title>
+	<meta name="viewport" content="width=device-width", user-scalale =no, initial-scale=1.0, maximum-scale="1.0" , minimum-scale="1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/Style.css">
-		
+		<script src="js/jquery.js"></script>
 	</head>
 
 	<body>
@@ -24,16 +27,18 @@ if(isset($_SESSION['user']) and ($_SESSION['codigotipousuario']===3)) {?>
 		</header>
 
 		<br>
+		 <div class="container-fluid">
 		<div>
 			<center><h3>Lista de Productores Registrados</h3></center>
 		</div>
 
 				<!--Lista de productores en la base de datos -->
 				<div class="container list-group">
-					<a href="#" class="list-group-item active b" data-toggle="modal" data-target="#nuevoregistro">Elija una de las opciones</a>
+					<a href="#" class="list-group-item active b" data-toggle="modal" data-target="">Elija una de las opciones</a>
 					<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#dataRegister">Nuevo Productor</a>
-					<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Editar Produtor</a>
-					<a href="#" class="list-group-item btn btn-success" data-toggle="modal" data-target="#nuevoregistro">Eliminar productor</a>
+					
+					
+					
 				</div>
 		<br>
 			</div>
@@ -42,22 +47,22 @@ if(isset($_SESSION['user']) and ($_SESSION['codigotipousuario']===3)) {?>
 	<script src="js/bootstrap.min.js"></script>
 	<div class="row">
 			<div class="col-xs-12">
-			<div id="loader" class="text-center"> <img src="imagenes/loader.gif"></div>
+			
 			<div class="datos_ajax_delete"></div><!-- Datos ajax Final -->
 			<div class="outer_div"></div><!-- Datos ajax Final -->
 			</div>
 		  </div>
+		  <div class="row">
+				<?php include_once('productores.php') ?>
+			</div>
 		</div>
+	</div>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	    <script src="js/jquery-3.1.1.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="js/bootstrap.min.js" ></script>
 		<script src="js/appnewproductor.js"></script>
-		<script>
-			$(document).ready(function(){
-				load(1);
-			});
-		</script>
+		
 	</body>
 
 	<footer class="footer">

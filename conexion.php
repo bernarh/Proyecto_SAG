@@ -106,10 +106,32 @@
    			return null;
 		}
 
+		/* consulta para combobox punto recoleccion en registro.php */
+		public function llenarPuntoRecoleccion(){
+			/* crear una sentencia preparada */
+			if ($stmt = $this->conect->prepare("SELECT codigo_punto_recoleccion, punto_recoleccion FROM tbl_punto_recoleccion  ")) {
+
+    			/* ejecutar la consulta */
+    			$stmt->execute();
+   				return $stmt->get_result();
+   			}
+   			return null;
+		}
+
+		public function llenartipodeusuario(){
+			/* crear una sentencia preparada */
+			if ($stmt = $this->conect->prepare("SELECT codigo_tipo_usuario, nombre_tipo_usuario FROM tbl_tipos_usuario order by codigo_tipo_usuario asc")) {
+
+    			/* ejecutar la consulta */
+    			$stmt->execute();
+   				return $stmt->get_result();
+   			}
+   			return null;
+		}
+
 		public function fechaNormal($fecha){
 			$nfecha = date('d/m/Y',strtotime($fecha));
 			return $nfecha;
-
 		}
 
 

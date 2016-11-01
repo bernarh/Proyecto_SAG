@@ -28,10 +28,10 @@
 
 									<div class="collapse navbar-collapse" id="navbar-1">
 										<ul class="nav navbar-nav">
-											<li class="active"><a href="registrar.php">Registrar</a></li>
+											<li><a href="registrar.php">Registrar</a></li>
 											<li><a href="new_productor.php">Nuevo Productor</a></li>
 											<li><a href="ver_datos.php">Ver Datos</a></li>
-											<li><a href="">Reportes</a></li>
+											<li><a href="reportes.php">Reportes</a></li>
 											<li class="dropdown">
 												<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
 												<ul class="dropdown-menu">

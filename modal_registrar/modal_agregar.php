@@ -1,3 +1,4 @@
+
 <form id="guardarDatos">
 <div class="modal fade" id="dataRegister" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
@@ -23,11 +24,26 @@
         </div>
       <h4 class="modal-title" id="exampleModalLabel">Informaci&oacute;n de compra/venta</h4>
       <br>
-    
+      <div class="form-group">
+            <label for="fecharecoleccion0" class="control-label" >fecha de recolecci&oacute;n:</label>
+
+            <input type="date" class="form-control" id="fecharecoleccion0" name="fecharecoleccion" required maxlength="30"  value=""> 
+        </div>
       <div class="form-group">
             <label for="puntorecoleccion0" class="control-label">Punto de recolecci&oacute;n:</label>
-            <input type="text" class="form-control" id="puntorecoleccion0" name="puntorecoleccion" required maxlength="30">
+            <select class="form-control" value="" id="puntorecoleccion0" name="puntorecoleccion" >
+                      <option value="">--Opci&oacute;n--</option>
+                      <?php
+                        $conexion= new Conexion();
+                        $result= $conexion->llenarPuntoRecoleccion();
+                        while ($myrow = $result->fetch_assoc()) {
+                          echo "<option value='".$myrow['codigo_punto_recoleccion']."'>".$myrow['punto_recoleccion']."</option>";
+                        }
+                        $conexion->cerrarConexion();  
+                      ?>
+                    </select>
           </div>
+
 		  <div class="form-group">
             <label for="tipotransaccion0" class="control-label">Tipo de transacci&oacute;n:</label>
             <select class="form-control" value="" id="tipotransaccion0" name="tipotransaccion" >

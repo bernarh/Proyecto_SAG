@@ -16,6 +16,8 @@
 		$errors[] = "El municipio vacío";
 	} else if (empty($_POST['nombretecnico'])){
 		$errors[] = "El nombre del productor vacío";
+	} else if (empty($_POST['correo'])){
+		$errors[] = "El correo vacío";
 	} else if (empty($_POST['telefono'])){
 		$errors[] = "Telefono vacio";
 	} else if (empty($_POST['ubicacion'])){
@@ -25,7 +27,8 @@
 		!empty($_POST['telefono']) &&
 		!empty($_POST['municipio']) &&
 		!empty($_POST['nombretecnico']) &&
-		!empty($_POST['telefono'])&&	
+		!empty($_POST['telefono'])&&
+		!empty($_POST['correo'])&&	
 		!empty($_POST['ubicacion'])
 	){
 
@@ -36,7 +39,8 @@
 		$nombretecnico=mysqli_real_escape_string($con,(strip_tags($_POST["nombretecnico"],ENT_QUOTES)));
 		$telefono=mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
 		$ubicacion=mysqli_real_escape_string($con,(strip_tags($_POST["ubicacion"],ENT_QUOTES)));
-			$sql="INSERT INTO `tbl_productores`(`codigo_productor`, `nombre_productor`, `telefono`, `correo`, `codigo_zona`, `codigo_municipio`, `ubicacion_exacta`, `fecha_ingreso_productor`, `codigo_usuario`) VALUES ('','".$nombretecnico."','".$telefono."','','".$ruta."','".$municipio."','".$ubicacion."',now(),'".$_SESSION['codigousuario']."')";
+		$correo=mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
+			$sql="INSERT INTO `tbl_productores`(`codigo_productor`, `nombre_productor`, `telefono`, `correo`, `codigo_zona`, `codigo_municipio`, `ubicacion_exacta`, `fecha_ingreso_productor`, `codigo_usuario`) VALUES ('','".$nombretecnico."','".$telefono."','".$correo."','".$ruta."','".$municipio."','".$ubicacion."',now(),'".$_SESSION['codigousuario']."')";
 			$query_update = mysqli_query($con,$sql);
 				if ($query_update){
 					$messages[] = "Los datos han sido guardados satisfactoriamente.";
