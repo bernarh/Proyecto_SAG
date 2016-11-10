@@ -149,25 +149,25 @@ ${demo.css}
                                         <li><a href="registrar.php">Registrar</a></li>
                                         <li ><a href="new_productor.php">Nuevo Productor</a></li>
                                         <li><a href="ver_datos.php">Ver Datos</a></li>
-                                        <li><a href="">Reportes</a></li>
+                                        <li><a href="reportes.php">Reportes</a></li>
                                         <li class="dropdown">
-                                            <a href="" class="dropdown-toggle active" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
+                                            <a href="" class="dropdown-toggle active" data-toggle="dropdown" role="button" >Gr&aacute;ficos<span class="caret"></span></a>
                                             <ul class="dropdown-menu">
-                                                <li><a href="grafico_barra.php">Grafico de Barras</a></li>
-                                                <li><a href="grafico_linea.php">Grafico de Linea</a></li>
-                                                <li><a href="grafico_pastel.php">Grafico Circular</a></li>
+                                                <li><a href="grafico_barra.php">Gr&aacute;fico de Barras</a></li>
+                                                <li><a href="grafico_linea.php">Gr&aacute;fico de Linea</a></li>
+                                                <li><a href="grafico_pastel.php">Gr&aacute;fico Circular</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="#">Grafico Precio Internacional</a></li>
+                                                <li><a href="#">Gr&aacute;fico Precio Internacional</a></li>
 
                                             </ul>
                                         </li>
                                         <li class="dropdown ">
                                             <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Opci&oacute;n<span class="caret"></span></a>           
                                             <ul href="opcion" class="dropdown-menu">
-                                                <li><a href="#">Cerrar Sesi&oacute;n</a></li>
+                                                <li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
                                                 <li class="divider"></li>
-                                                <li><a href="#">Cambiar Contrase&ntilde;a</a></li>
-                                                <li><a href="#">Mi Perfil</a></li>
+                                                <li><a href="cambiarpw.php">Cambiar Contrase&ntilde;a</a></li>
+                                                
                                                 
 
                                             </ul>
@@ -176,13 +176,7 @@ ${demo.css}
 
                                     </ul>
 
-                                    <form action="" class="navbar-form navbar-right hidden-sm" role="search">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control " placeholder="Buscar">
-
-                                        </div>
-
-                                    </form>
+                                
                                 </div>
                             </div>
                     </nav>
@@ -304,11 +298,11 @@ ${demo.css}
             $(function () {
                     $('#container').highcharts({
                         title: {
-                            text: 'PROCACAHO',
+                            text: 'Movimientos en el Precio de el Cacao <?php echo ' '.$zona.' '.$fechaini.' '.$fechafin.' '.$producto.' '.$productor ?>',
                             x: -20 //center
                         },
                         subtitle: {
-                            text: 'Movimientos en el Precio de el Cacao',
+                            text: 'PROCACAHO',
                             x: -20
                         },
                         xAxis: {

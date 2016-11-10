@@ -155,16 +155,16 @@ if(isset($_SESSION['user'])) {
 									<ul class="nav navbar-nav">
 										<li><a href="registrar.php">Registrar</a></li>
 										<li><a href="new_productor.php">Nuevo Productor</a></li>
-										<li class="active"><a href="ver_datos.php">Ver Datos</a></li>
-										<li><a href="reportes.php">Reportes</a></li>
+										<li><a href="ver_datos.php">Ver Datos</a></li>
+										<li class="active"><a href="reportes.php">Reportes</a></li>
 										<li class="dropdown">
-											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Gr&aacute;ficos<span class="caret"></span></a>
 											<ul class="dropdown-menu">
-												<li><a href="grafico_barra.php">Grafico de Barras</a></li>
-                                                <li><a href="grafico_linea.php">Grafico de Linea</a></li>
-                                                <li><a href="grafico_pastel.php">Grafico Circular</a></li>
+												<li><a href="grafico_barra.php">Gr&aacute;fico de Barras</a></li>
+                                                <li><a href="grafico_linea.php">Gr&aacute;fico de Linea</a></li>
+                                                <li><a href="grafico_pastel.php">Gr&aacute;fico Circular</a></li>
 												<li class="divider"></li>
-												<li><a href="#">Grafico Precio Internacional</a></li>
+												<li><a href="#">Gr&aacute;fico Precio Internacional</a></li>
 
 											</ul>
 										</li>
@@ -174,7 +174,7 @@ if(isset($_SESSION['user'])) {
 												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
 												<li><a href="cambiarpw.php">Cambiar Contrase&ntilde;a</a></li>
-												<li><a href="#">Mi Perfil</a></li>
+												
 												
 
 											</ul>
@@ -183,13 +183,7 @@ if(isset($_SESSION['user'])) {
 
 									</ul>
 
-									<form action="" class="navbar-form navbar-right hidden-sm" role="search">
-										<div class="form-group">
-											<input type="text" class="form-control " placeholder="Buscar">
-
-										</div>
-
-									</form>
+									
 								</div>
 							</div>
 					</nav>

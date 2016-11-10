@@ -5,6 +5,11 @@ include 'conexion.php';
 if(isset($_SESSION['user'])) {
 
     $where=" ";
+    $zona="";
+    $fechaini="";
+    $fechafin="";
+    $limit="";
+
       
    if (isset($_POST["xruta"])){
       $zona=$_POST['xruta'];
@@ -14,6 +19,9 @@ if(isset($_SESSION['user'])) {
     } 
     if (isset($_POST["bd-hasta"])){
       $fechafin=$_POST['bd-hasta'];
+    }
+    if (isset($_POST["limite"])){
+      $limit=$_POST['limite'];
     } 
 
 
@@ -153,15 +161,15 @@ if(isset($_SESSION['user'])) {
 										<li><a href="registrar.php">Registrar</a></li>
 										<li><a href="new_productor.php">Nuevo Productor</a></li>
 										<li class="active"><a href="">Ver Datos</a></li>
-										<li><a href="">Reportes</a></li>
+										<li><a href="reportes.php">Reportes</a></li>
 										<li class="dropdown">
-											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Gr&aacute;ficos<span class="caret"></span></a>
 											<ul class="dropdown-menu">
-												<li><a href="grafico_barra.php">Grafico de Barras</a></li>
-                                                <li><a href="grafico_linea.php">Grafico de Linea</a></li>
-                                                <li><a href="grafico_pastel.php">Grafico Circular</a></li>
+												<li><a href="grafico_barra.php">Gr&aacute;fico de Barras</a></li>
+                                                <li><a href="grafico_linea.php">Gr&aacute;fico de Linea</a></li>
+                                                <li><a href="grafico_pastel.php">Gr&aacute;fico Circular</a></li>
 												<li class="divider"></li>
-												<li><a href="#">Grafico Precio Internacional</a></li>
+												<li><a href="#">Gr&aacute;fico Precio Internacional</a></li>
 
 											</ul>
 										</li>
@@ -171,7 +179,7 @@ if(isset($_SESSION['user'])) {
 												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
 												<li><a href="cambiarpw.php">Cambiar Contrase&ntilde;a</a></li>
-												<li><a href="#">Mi Perfil</a></li>
+												
 												
 
 											</ul>
@@ -180,13 +188,7 @@ if(isset($_SESSION['user'])) {
 
 									</ul>
 
-									<form action="" class="navbar-form navbar-right hidden-sm" role="search">
-										<div class="form-group">
-											<input type="text" class="form-control " placeholder="Buscar">
-
-										</div>
-
-									</form>
+								
 								</div>
 							</div>
 					</nav>
@@ -216,7 +218,7 @@ if(isset($_SESSION['user'])) {
                             ?>
                             </select>
                         </div>
-                             <div class="col-sm-3 col-md-3">
+                             <div class="col-sm-2 col-md-2">
                                                 
                                 <label class="control-label" for="bd-desde">Fecha inicial:</label>
                                 <div class="">
@@ -225,7 +227,7 @@ if(isset($_SESSION['user'])) {
                                 </div>
                             </div>
 
-                            <div class="col-sm-3 col-md-3">
+                            <div class="col-sm-2 col-md-2">
 
                                 <label class="control-label" for="bd-hasta">Fecha final:</label>
                                 <div class="">
@@ -234,7 +236,21 @@ if(isset($_SESSION['user'])) {
                                 
                             </div>
 
-                            <div class="col-sm-3 col-md-3">
+                             <div class="col-sm-3 col-md-3">
+                            
+                            <label class="control-label" for="tipop1">L&iacute;mite:</label>
+                            <select name="limite" class="form-control" value="" id="tipop1">
+                                <option value="">--Opci&oacute;n--</option>
+                                <option value="limit 3">3</option>
+                                <option value="limit 6">6</option>
+                                <option value="limit 8">8</option>
+                                <option value="limit 10">10</option>
+                                <option value="">Todos</option>
+                            
+                            </select>
+                            </div>
+
+                            <div class="col-sm-2 col-md-2">
                                 <button class="btn btn-info " name="Buscar" type="submit">Buscar</button> 
                             </div>
                        
@@ -245,7 +261,8 @@ if(isset($_SESSION['user'])) {
                 </div>
                 <br>
 		<div>
-			<center><h3>Hoja de recolecci&oacute;n de informaci&oacute;n de comercializaci&oacute;n de productos de cacao</h3></center>
+			<center><h3>Hoja de recolecci&oacute;n de informaci&oacute;n de comercializaci&oacute;n de productos de cacao 
+            <?php echo ' '.$zona.' '.$fechaini.' '.$fechafin ?></h3></center>
 		</div>
 		<div class="container-fluid">
 			<div class="table-responsive">
@@ -261,7 +278,7 @@ if(isset($_SESSION['user'])) {
                         <th>Precio</th>
                         <th>Volumen</th>
                         <th>Comentarios</th>
-                        <th>Seleccionar</th>
+                        
 					</tr>
 					
 						<?php
@@ -270,7 +287,7 @@ if(isset($_SESSION['user'])) {
                             $sql= "SELECT A.fecha_recoleccion, c.nombre_municipio ,B.nombre_productor, 
                                     H.punto_recoleccion, D.tipo_transaccion,E.tipo_produccion, 
                                     CONCAT(F.descripcion_producto,' ',J.nombre_tipo_cacao) as nombre_tipo_cacao , 
-                                    CONCAT('Lps.',' ',A.precio) AS precio, 
+                                    CONCAT('L.',' ',A.precio) AS precio, 
                                     CONCAT(A.cantidad,' ',G.abreviatura) AS volumen, A.comentario 
                                     FROM tbl_productores_x_producto A 
                                     LEFT JOIN tbl_productores B
@@ -290,7 +307,7 @@ if(isset($_SESSION['user'])) {
                                     LEFT JOIN tbl_punto_recoleccion H 
                                     ON (A.codigo_punto_recoleccion=H.codigo_punto_recoleccion)
                                     LEFT JOIN tbl_zonas I
-                                    ON (B.codigo_zona=I.codigo_zona) $where";
+                                    ON (B.codigo_zona=I.codigo_zona) $where $limit";
                                             
                             
                             $result = mysqli_query($conexion->getConexion(),$sql);
@@ -308,7 +325,7 @@ if(isset($_SESSION['user'])) {
                                     <td>'.$registro2['precio'].'</td>
                                     <td>'.$registro2['volumen'].'</td>
                                     <td>'.$registro2['comentario'].'</td>
-                                    <td><input type="checkbox" name="chk"/></td>
+                                
                                     </tr>';
                             }
 
@@ -320,8 +337,6 @@ if(isset($_SESSION['user'])) {
 		</div>
 		<br>
 	   <div class="container">
-        <input class="btn btn-info" type="button" value="Editar">
-        <input class="btn btn-danger" type="button" value="Eliminar" onclick="deleteRow('dataTable');">
         <input class="btn btn-info" type="button" value="Exportar Excel" onclick="descargarExcel('dataTable');">
        </div>
 
