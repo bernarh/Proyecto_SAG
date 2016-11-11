@@ -13,10 +13,10 @@
 			$this->user=$user;
 			$this->pw=$pw;
 		}
+		
 
 		public function autenticar(){
 			$this->user=ValidacionUsername($_POST['user']);
-			$this->pw=validacionPass($_POST['pw']);
 			$conexion= new Conexion();
 			$mysqli= $conexion->getConexion();
 			if (mysqli_connect_errno()) {
@@ -27,11 +27,12 @@
 			if ($stmt = $mysqli->prepare("SELECT CODIGO_USUARIO, USER, PW, CODIGO_TIPO_USUARIO, ESTADO_USUARIO FROM TBL_USUARIOS WHERE USER = ? AND PW = ? ")){
 				$stmt->bind_param("ss",$this->user,$this->pw);
 				$stmt->execute();
-				$stmt->bind_result($this->codigoUsuario,$this->user,$this->pw,$this->codigoTipoUsuario, $this->estadoUsuario);
+				$stmt->bind_result($this->codigoUsuario,$this->user,$this->user,$this->codigoTipoUsuario, $this->estadoUsuario);
 				$stmt->fetch();
 			}
 		}
 
+		
 		//setter and getters
 		public function setUser($user){
 			$this->user=$user;

@@ -11,11 +11,23 @@
 </head>
 <body>
 		<?php
+			function encriptar($cadena){
+			    $key='sag';  // Una clave de codificacion, debe usarse la misma para encriptar y desencriptar
+			    $encrypted = base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_256, md5($key), $cadena, MCRYPT_MODE_CBC, md5(md5($key))));
+			    return $encrypted; //Devuelve el string encriptado
+		 
+			}
+ 
+		function desencriptar($cadena){
+		     $key='sag';  // Una clave de codificacion, debe usarse la misma para encriptar y desencriptar
+		     $decrypted = rtrim(mcrypt_decrypt(MCRYPT_RIJNDAEL_256, md5($key), base64_decode($cadena), MCRYPT_MODE_CBC, md5(md5($key))), "\0");
+		    return $decrypted;  //Devuelve el string desencriptado
+		}
 			require_once( 'usuario.php');
 			require_once( 'conexion.php');
 			$conexion = new Conexion();
 			if(isset($_POST['login'])){
-				$usuario= new Usuario($_POST['user'],$_POST['pw']);
+				$usuario= new Usuario($_POST['user'],encriptar($_POST['pw']));
 				$usuario->autenticar();
 				if ($usuario->getCodigoTipoUsuario()!=null && $usuario->getEstadoUsuario()!=0 ) {
 					$_SESSION["user"] = $usuario->getUser();

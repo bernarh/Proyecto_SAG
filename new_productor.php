@@ -25,7 +25,7 @@ if(isset($_SESSION['user']) and ($_SESSION['codigotipousuario']===3)) {?>
 	  		<?php include("modal_new_productor/modal_modificar.php");?>
 	  		<?php include("modal_new_productor/modal_eliminar.php");?>
 		</header>
-
+	
 		<br>
 		 <div class="container-fluid">
 		<div>
@@ -43,8 +43,7 @@ if(isset($_SESSION['user']) and ($_SESSION['codigotipousuario']===3)) {?>
 		<br>
 			</div>
 		</div>
-	<script src="js/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
+	
 	<div class="row">
 			<div class="col-xs-12">
 			

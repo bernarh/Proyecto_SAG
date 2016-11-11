@@ -2,7 +2,7 @@
 		var parametros = {"action":"ajax","page":page};
 		$("#loader").fadeIn('slow');
 		$.ajax({
-			url:'tabla2.js',
+			url:'productosrecientes.php',
 			data: parametros,
 			 beforeSend: function(objeto){
 			$("#loader").html("<img src='imagenes/loader.gif'>");

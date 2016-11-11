@@ -3,8 +3,7 @@ session_start();
 include 'conexion.php';
 $conexion= new Conexion();
 # conectare la base de datos
-$accion="Cerro Sesion";
-$fecha=date("dd/mm/YYYY");
+$accion="Cerro Sesion el codigo de usuario: ".$_SESSION["codigousuario"];
 $connect=$conexion->getConexion();
 $query= "INSERT INTO tbl_bitacora values('','".$_SESSION['user']."',now(),'$accion')";
 $result= mysqli_query($connect,$query);
