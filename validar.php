@@ -24,7 +24,7 @@
 				  	if ($usuario->getCodigoTipoUsuario()==1){
 						echo '<script> window.location="menuadministrador.php"; </script>';
 					}else if ($usuario->getCodigoTipoUsuario()==2){
-						echo '<script> window.location="menusupervisor.php"; </script>';
+						echo '<script> window.location="registrardirector.php"; </script>';
 					}else if ($usuario->getCodigoTipoUsuario()==3){
 
 $hostname ="localhost";
