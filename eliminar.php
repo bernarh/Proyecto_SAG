@@ -1,7 +1,9 @@
 <?php
 	session_start();
+	include 'conexion.php';
+	$conexion= new Conexion();
 	# conectare la base de datos
-    $con=@mysqli_connect('localhost', 'root', '', 'prueba_db');
+    $con=@$conexion->getConexion();
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }
@@ -60,10 +62,13 @@
 		$fecharecoleccion=intval($_POST['fecharecoleccion']);
 		
 		
-		$sql="DELETE FROM tbl_productores_x_producto WHERE codigo_producto='".$codigoproducto."' and codigo_productor='".$codigoproductor."' AND fecha_recoleccion='".$_POST['fecharecoleccion']."' AND fecha_ingreso_producto LIKE '%".$_POST['fechaingresoproducto']."%'  and cantidad='".$cantidad."' and precio='".$precio."'  and codigo_tipo_produccion='".$codigotipoproduccion."' and codigo_usuario= '".$codigousuario."' and comentario='".$comentario."' and codigo_tipo_transaccion='".$codigotipotransaccion."' and codigo_punto_recoleccion='".$codigopuntorecoleccion."'";
+		$sql="UPDATE  tbl_productores_x_producto SET estado_producto='0' WHERE fecha_ingreso_producto LIKE '%".$_POST['fechaingresoproducto']."%'";
 		$query_delete = mysqli_query($con,$sql);
 			if ($query_delete){
 				$messages[] = "Los datos han sido eliminados satisfactoriamente.";
+				echo "Los datos han sido eliminados satisfactoriamente.";
+				echo '<script> alert("Eliminado con exito") </script>';
+				echo '<script> window.location="registrar.php"; </script>';
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 			}
@@ -73,7 +78,7 @@
 		
 		if (isset($errors)){
 			
-			?>
+?>
 			<div class="alert alert-danger" role="alert">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<strong>Error!</strong> 

@@ -1,25 +1,7 @@
-<?php
-session_start();
-include 'conexion.php';
-
-if(isset($_SESSION['user'])) {?>
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
-		<link rel="stylesheet" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/Style.css">
-		
-	</head>
-
-	<body>
-
-		<header>
-			<div class="row">
+<div class="row">
 				<div class="container-fluid" id="logos">
 					<div class="">
-						<img class="col-xs-10 col-sm-10 col-md-10"src="imagenes/logos.png">
+						<img class="col-xs-10 col-sm-10 col-md-10" src="imagenes/logos.png">
 					</div>					
 					<div class="clearfix visible-xs-block"></div>
 					<div class="clearfix visible-sm-block"></div>
@@ -46,8 +28,8 @@ if(isset($_SESSION['user'])) {?>
 
 								<div class="collapse navbar-collapse" id="navbar-1">
 									<ul class="nav navbar-nav">
-										<li class="active"><a href="menuadministrador.php">Editar Usuario</a></li>
-										<li><a href="">Registro de Actividades</a></li>
+										<li class="active"><a href="">Editar Usuario</a></li>
+										<li><a href="registroactividad.php">Registro de Actividades</a></li>
 										<li><a href="">Ver Datos</a></li>
 										<li><a href="">Reportes</a></li>
 										<li class="dropdown">
@@ -88,42 +70,3 @@ if(isset($_SESSION['user'])) {?>
 					</nav>
 				</div>
 			</div>
-		</header>
-		<br>
-		<div>
-			<center><h3>Registro de Actividades</h3></center>
-		</div>
-		
-			<div class="row">
-		  		<?php include_once('busquedab.php') ?>
-			
-		  </div>
-		
-		<br>
-		<div class="container">
-			<div class="modal fade" id="nuevoregistro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			</div>
-		</div>
-
-		<br>
-		<br>
-		<br>
-		
-		<script src="js/jquery.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-	</body>
-
-<footer class="footer">
-	
-	<div class="row">
-		<center><h6>Todos los derechos Reservados @CopyRight</h6></center>
-	</div>
-
-</footer>
-
-</html>
-<?php
-}else{
-	echo '<script> window.location="index.php"; </script>';
-}
-?>

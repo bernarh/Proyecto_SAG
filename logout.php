@@ -1,12 +1,11 @@
 <?php
 session_start();
-$hostname ="localhost";
-$username= "root";
-$pass="";
-$db="prueba_db";
+include 'conexion.php';
+$conexion= new Conexion();
+# conectare la base de datos
 $accion="Cerro Sesion";
 $fecha=date("dd/mm/YYYY");
-$connect=mysqli_connect($hostname,$username,$pass,$db);
+$connect=$conexion->getConexion();
 $query= "INSERT INTO tbl_bitacora values('','".$_SESSION['user']."',now(),'$accion')";
 $result= mysqli_query($connect,$query);
 session_destroy();

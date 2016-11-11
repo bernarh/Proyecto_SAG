@@ -6,13 +6,11 @@ if(isset($_SESSION['user']) and($_SESSION['codigotipousuario']===3) ) { ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
- 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      <title>Agregar Produtos </title>
-	<meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
-		<meta name="viewport" content="width=device-width", user-scalale =no, initial-scale=1.0, maximum-scale="1.0" , minimum-scale="1.0">
+	<meta name="viewport" content="width=device-width", user-scalale =no, initial-scale=1.0, maximum-scale="1.0" , minimum-scale="1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/Style.css">
 		<script src="js/jquery.js"></script>
@@ -26,8 +24,6 @@ if(isset($_SESSION['user']) and($_SESSION['codigotipousuario']===3) ) { ?>
 	  <?php include("modal_registrar/modal_agregar.php");?>
 	  <?php include("modal_registrar/modal_modificar.php");?>
 	  <?php include("modal_registrar/modal_eliminar.php");?>
-	  <script src="js/jquery.js"></script>
-	  <script src="js/bootstrap.min.js"></script>
 	    <div class="container-fluid">
 		 
 			<div class='col-xs-6'>	
@@ -46,19 +42,18 @@ if(isset($_SESSION['user']) and($_SESSION['codigotipousuario']===3) ) { ?>
 		  </div>
 		</div>
 		
-		
-		
-		
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+
+	    <script src="js/jquery-3.1.1.min.js"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="js/bootstrap.min.js" ></script>
+		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		<script src="js/app.js"></script>
 		<script>
 			$(document).ready(function(){
 				load(1);
 			});
 		</script>
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	    <script src="js/jquery-3.1.1.min.js"></script>
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="js/bootstrap.min.js" ></script>
-		<script src="js/app.js"></script>
  </body>
  <footer class="footer">
 	

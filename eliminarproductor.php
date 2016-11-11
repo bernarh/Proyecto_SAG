@@ -1,7 +1,9 @@
 <?php
 	session_start();
+	include 'conexion.php';
+	$conexion= new Conexion();
 	# conectare la base de datos
-    $con=@mysqli_connect('localhost', 'root', '', 'prueba_db');
+    $con=@$conexion->getConexion();
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }
@@ -23,10 +25,13 @@
 		
 		
 		
-		$sql="DELETE FROM tbl_productores WHERE codigo_productor='".$codigoproductor."'";
+		$sql="UPDATE tbl_productores SET estado_productor=0 WHERE codigo_productor='".$codigoproductor."'";
 		$query_delete = mysqli_query($con,$sql);
 			if ($query_delete){
 				$messages[] = "Los datos han sido eliminados satisfactoriamente.";
+				echo "Los datos han sido eliminados satisfactoriamente.";
+				echo '<script> alert("Eliminado con exito") </script>';
+				echo '<script> window.location="new_productor.php"; </script>';
 			} else{
 				$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 			}

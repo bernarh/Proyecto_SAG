@@ -10,13 +10,11 @@
       <div class="modal-body">
 			<div id="datos_ajax_register"></div>
       <div class="form-group">
-            <label for="nombretecnico0" class="control-label">Nombre del Productor:</label>
-            <input type="text" class="form-control" id="nombretecnico0" name="nombretecnico" required maxlength="30">
+          
+            <label for="nombretecnico0" class="control-label">Codigo del Productor:</label>
+            <input type="text" class="form-control" id="nombretecnico0" name="nombretecnico" required maxlength="50" autocomplete="off">
+            <!--<div id="suggestions"></div>-->
       </div>
-		  <div class="form-group">
-            <label for="telefono0" class="control-label">Tel&eacute;fono:</label>
-            <input type="text" class="form-control" id="telefono0" name="telefono" required maxlength="20">
-          </div>
        <div class="form-group">
             <label for="fechaingreso0" class="control-label" >fecha ingreso:</label>
 

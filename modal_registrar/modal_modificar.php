@@ -9,13 +9,9 @@
       <div class="modal-body">
 			<div id="datos_ajax"></div>
         <div class="form-group">
-            <label for="nombretecnico" class="control-label">Comentario:</label>
+            <label for="nombretecnico" class="control-label">Codigo Tecnico:</label>
             <input type="text" class="form-control" id="nombretecnico" name="nombretecnico" required maxlength="255">
           </div> 
-        <div class="form-group">
-            <label for="telefono" class="control-label">Tel&eacute;fono:</label>
-            <input type="text" class="form-control" id="telefono" name="telefono" required maxlength="255" >
-          </div>
 		  <div class="form-group">
             <label for="fechaingreso" class="control-label">Fecha Ingreso:</label>
              <input type="text" class="form-control" id="fechaingreso" name="fechaingreso" required maxlength="30" disabled="disabled" value="<?php   echo date('Y-m-j H:i:s'); ?>"> 
@@ -41,7 +37,7 @@
                     </select>
           </div>
           <div class="form-group">
-            <label for="tipotransaccion" class="control-label">Punto de Recolecci&oacute;n:</label>
+            <label for="tipotransaccion" class="control-label">Tipo de Transacci&oacute;n:</label>
             <select class="form-control" value="" id="tipotransaccion" name="tipotransaccion" >
                       <option value="">--Opci&oacute;n--</option>
                      <?php

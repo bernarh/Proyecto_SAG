@@ -1,8 +1,9 @@
 <?php
 	session_start();
 	include 'conexion.php';
+	$conexion= new Conexion();
 	# conectare la base de datos
-    $con=@mysqli_connect('localhost', 'root', '', 'prueba_db');
+    $con=@$conexion->getConexion();
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }

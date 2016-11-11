@@ -32,9 +32,7 @@
                                     <label for="buscar" class="control-label">Buscar:</label>
                                 </div>
                                 <div class="col-xs-4">
-                                    <input  type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista(this.value);" placeholder="Ingrese el nombre del Productor"/>
-
-                                     <input  type="submit" class="form-control" onclick="descargarExcel();" value="Descargar"/>
+                                    <input  type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista(this.value);" placeholder="Ingrese el Nombre del Usuario"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -52,7 +50,7 @@
     </div>
     <script src="js/jquery-1.11.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/tabla.js"></script>
+    <script src="js/tabla3.js"></script>
 </body>
 </html>
 

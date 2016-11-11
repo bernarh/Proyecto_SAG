@@ -32,7 +32,7 @@
                                     <label for="buscar" class="control-label">Buscar:</label>
                                 </div>
                                 <div class="col-xs-4">
-                                    <input  type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista(this.value);" placeholder="Ingrese precio o cantidad"/>
+                                    <input  type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista(this.value);" placeholder="Ingrese el Nombre del Productor"/>
                                 </div>
                             </div>
                             <div class="form-group">

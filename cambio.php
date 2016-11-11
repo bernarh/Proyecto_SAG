@@ -8,11 +8,8 @@ if(isset($_SESSION['user'])) {?>
 $pw=$_POST['pw'];
 $pw1=$_POST['pw1'];
 $pw2=$_POST['pw2'];
-$hostname ="localhost";
-$username= "root";
-$pass="";
-$db="prueba_db";
-$connect=mysqli_connect($hostname,$username,$pass,$db);
+$conexion=new Conexion();
+$connect=$conexion->getConexion();
 $query= "SELECT * FROM tbl_usuarios WHERE user='".$_SESSION['user']."'";
 $result= mysqli_query($connect,$query);
 echo '<table border="1">';

@@ -1,9 +1,9 @@
 <?php
 	session_start();
 	include 'conexion.php';
-	
+	$conexion= new Conexion();
 	# conectare la base de datos
-    $con=@mysqli_connect('localhost', 'root', '', 'prueba_db');
+    $con=@$conexion->getConexion();
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }
@@ -13,8 +13,6 @@
 	/*Inicia validacion del lado del servidor*/
 	 if (empty($_POST['nombretecnico'])){
 		$errors[] = "nombre productor vacío";
-	} else if (empty($_POST['telefono'])){
-		$errors[] = "telefono vacío";
 	} else if (empty($_POST['puntorecoleccion'])){
 		$errors[] = "punto de recoleccion vacío";
 	} else if (empty($_POST['tipotransaccion'])){
@@ -37,7 +35,6 @@
 		$errors[] = "comentario vacio";
 	}   else if (
 		!empty($_POST['nombretecnico']) && 
-		!empty($_POST['telefono']) &&
 		!empty($_POST['puntorecoleccion']) &&
 		!empty($_POST['tipotransaccion']) &&
 		!empty($_POST['tipoproduccion'])&&	
@@ -49,7 +46,6 @@
 
 		// escaping, additionally removing everything that could be (html/javascript-) code
 		$nombretecnico=mysqli_real_escape_string($con,(strip_tags($_POST["nombretecnico"],ENT_QUOTES)));
-		$telefono=mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
 		$fecharecoleccion=mysqli_real_escape_string($con,(strip_tags($_POST["fecharecoleccion"],ENT_QUOTES)));
 		$puntorecoleccion=mysqli_real_escape_string($con,(strip_tags($_POST["puntorecoleccion"],ENT_QUOTES)));
 		$tipotransaccion=mysqli_real_escape_string($con,(strip_tags($_POST["tipotransaccion"],ENT_QUOTES)));
@@ -61,10 +57,10 @@
 		
 		/* crear una sentencia preparada */
 		$sentencia = mysqli_stmt_init($con);
-		if (mysqli_stmt_prepare($sentencia, 'SELECT codigo_productor FROM tbl_productores WHERE nombre_productor=? AND telefono=?')) {
+		if (mysqli_stmt_prepare($sentencia, 'SELECT codigo_productor FROM tbl_productores WHERE codigo_productor=?')) {
 
 		    /* vincular los parámetros para los marcadores */
-		    mysqli_stmt_bind_param($sentencia, "ss", $nombretecnico,$telefono);
+		    mysqli_stmt_bind_param($sentencia, "i", $nombretecnico);
 
 		    /* ejecutar la consulta */
 		    mysqli_stmt_execute($sentencia);
@@ -82,10 +78,13 @@
 			$errors []= "Error no existe el productor que intenta agregar.";
 		}else{
 			
-			$sql="INSERT INTO `tbl_productores_x_producto`(`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`, `codigo_usuario`, `comentario`, `fecha_recoleccion`, `codigo_tipo_transaccion`, `codigo_punto_recoleccion`) VALUES  ('".$codigoProductor."','".$tipoproducto."','".$volumenproducto."','".$precio."',now(),'".$tipoproduccion."','".$_SESSION['codigousuario']."','".$comentario."','".$fecharecoleccion."','".$tipotransaccion."','".$puntorecoleccion."')";
+			$sql="INSERT INTO `tbl_productores_x_producto`(`codigo_productor`, `codigo_producto`, `cantidad`, `precio`, `fecha_ingreso_producto`, `codigo_tipo_produccion`, `codigo_usuario`, `comentario`, `fecha_recoleccion`, `codigo_tipo_transaccion`, `codigo_punto_recoleccion`,`estado_producto`) VALUES  ('".$codigoProductor."','".$tipoproducto."','".$volumenproducto."','".$precio."',now(),'".$tipoproduccion."','".$_SESSION['codigousuario']."','".$comentario."','".$fecharecoleccion."','".$tipotransaccion."','".$puntorecoleccion."','1')";
 			$query_update = mysqli_query($con,$sql);
 				if ($query_update){
 					$messages[] = "Los datos han sido guardados satisfactoriamente.";
+					echo "Los datos han sido Guardados satisfactoriamente.";
+					echo '<script> alert("Guardado con exito") </script>';
+					echo '<script> window.location="registrar.php"; </script>';
 					
 				} else{
 					$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);

@@ -1,7 +1,8 @@
 <?php
+	include 'conexion.php';
 	$productor = $_GET['term'];
-	 
-	$conexion = new mysqli("localhost", "root", "", "prueba_db");
+	$conexion= new Conexion();
+	$conexion = $conexion->getConexion();
 	 
 	$consulta = "SELECT codigo_productor, nombre_productor, telefono,codigo_zona, codigo_municipio, ubicacion_exacta  FROM `tbl_productores` WHERE nombre_productor LIKE '%$productor%'";
 	 

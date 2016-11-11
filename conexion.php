@@ -134,6 +134,16 @@
 			return $nfecha;
 		}
 
+		public function comprobarNombreUsuario($nombreUsuario){
+			/* crear una sentencia preparada */
+			if ($stmt = $this->conect->prepare("SELECT COUNT(*) as cantidad FROM tbl_usuarios WHERE user=?")) {
+				$stmt->bind_param("s",$nombreUsuario);
+    			/* ejecutar la consulta */
+    			$stmt->execute();
+   				return $stmt->get_result();
+   			}
+			return $nfecha;
+		}
 
 	}
 	

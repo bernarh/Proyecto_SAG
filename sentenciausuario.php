@@ -1,5 +1,5 @@
 <?php 
-	class busquedacp
+	class busquedausuario
 	{
 		private $conexion;
 		public function __construct()
@@ -10,7 +10,7 @@
 
 		function lista($valor)
 		{
-			$sql="SELECT  p.codigo_productor, p.nombre_productor, p.telefono, p.correo, p.codigo_zona, p.codigo_municipio, p.ubicacion_exacta, p.fecha_ingreso_productor, p.codigo_usuario, m.nombre_municipio FROM tbl_productores p inner join tbl_municipios m on (p.codigo_municipio=m.codigo_municipio) WHERE nombre_productor like '%".$valor."%' and p.estado_productor=1 order by p.fecha_ingreso_productor desc limit 10 ";
+			$sql="SELECT `codigo_usuario`, `user`, `direccion`, `telefono`, `correo`, `codigo_tipo_usuario`, `fecha_ingreso` , `pw` FROM `tbl_usuarios`  WHERE user like '%".$valor."%' and estado_usuario=1 order by fecha_ingreso desc limit 10 ";
 			$this->conexion->getConexion()->set_charset('utf8');
 			$resultados=$this->conexion->getConexion()->query($sql);
 			$arreglo = array();

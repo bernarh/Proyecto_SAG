@@ -16,45 +16,39 @@
 
 		$('#dataUpdate').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Botón que activó el modal
-		  var nombretecnico = button.data('nombretecnico') // Extraer la información de atributos de datos
-		  
+		 	var fechaingreso = button.data('fechaingreso') // Extraer la información de atributos de datos
+		  var codigousuario = button.data('codigousuario') // Extraer la información de atributos de datos
+		  var nombreusuario = button.data('nombreusuario') // Extraer la información de atributos de datos
+		  var direccion = button.data('direccion') // Extraer la información de atributos de datos
+		  var pw = button.data('pw') // Extraer la información de atributos de datos
+		  var telefono = button.data('telefono') // Extraer la información de atributos de datos
+		  var correo = button.data('correo') // Extraer la información de atributos de datos
+		  var tipousuario = button.data('tipousuario') // Extraer la información de atributos de datos
 		  var modal = $(this)
-		  modal.find('.modal-body #nombretecnico').val(nombretecnico)
+		  modal.find('#fechaingreso').val(fechaingreso);
+		  modal.find('#codigousuario').val(codigousuario);
+		  modal.find('#nombreusuario').val(nombreusuario);
+		  modal.find('#pass1').val(pw);
+		  modal.find('#pass2').val(pw);
+		  modal.find('#direccion').val(direccion);
+		  modal.find('#telefono').val(telefono);
+		  modal.find('#correo').val(correo);
+		  modal.find('#tipousuario').val(tipousuario);
 		  $('.alert').hide();//Oculto alert
 		})
 		
 		$('#dataDelete').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Botón que activó el modal
-		  var fechaingresoproducto = button.data('fechaingresoproducto') // Extraer la información de atributos de datos
-		  var codigoproductor = button.data('codigoproductor') // Extraer la información de atributos de datos
-		  var codigoproducto = button.data('codigoproducto') // Extraer la información de atributos de datos
-		  var cantidad = button.data('cantidad') // Extraer la información de atributos de datos
-		  var precio = button.data('precio') // Extraer la información de atributos de datos
-		  var codigotipoproduccion = button.data('codigotipoproduccion') // Extraer la información de atributos de datos
 		  var codigousuario = button.data('codigousuario') // Extraer la información de atributos de datos
-		  var codigotipotransaccion = button.data('codigotipotransaccion') // Extraer la información de atributos de datos
-		  var codigopuntorecoleccion = button.data('codigopuntorecoleccion') // Extraer la información de atributos de datos
-		  var comentario = button.data('comentario') // Extraer la información de atributos de datos
-		  var fecharecoleccion = button.data('fecharecoleccion') // Extraer la información de atributos de datos
 		  var modal = $(this)
-		  modal.find('#fechaingresoproducto').val(fechaingresoproducto);
-		  modal.find('#codigoproductor').val(codigoproductor);
-		  modal.find('#codigoproducto').val(codigoproducto);
-		  modal.find('#cantidad').val(cantidad);
-		  modal.find('#precio').val(precio);
-		  modal.find('#codigotipoproduccion').val(codigotipoproduccion);
 		  modal.find('#codigousuario').val(codigousuario);
-		  modal.find('#codigotipotransaccion').val(codigotipotransaccion);
-		  modal.find('#codigopuntorecoleccion').val(codigopuntorecoleccion);
-		  modal.find('#comentario').val(comentario);
-		  modal.find('#fecharecoleccion').val(fecharecoleccion);
 		})
 
 	$( "#actualidarDatos" ).submit(function( event ) {
 		var parametros = $(this).serialize();
 			 $.ajax({
 					type: "POST",
-					url: "agregar.php",
+					url: "editarusuario.php",
 					data: parametros,
 					 beforeSend: function(objeto){
 						$("#datos_ajax").html("Mensaje: Cargando...");
@@ -72,7 +66,7 @@
 		var parametros = $(this).serialize();
 			 $.ajax({
 					type: "POST",
-					url: "agregar.php",
+					url: "agregarusuario.php",
 					data: parametros,
 					 beforeSend: function(objeto){
 						$("#datos_ajax_register").html("Mensaje: Cargando...");
@@ -90,7 +84,7 @@
 		var parametros = $(this).serialize();
 			 $.ajax({
 					type: "POST",
-					url: "eliminar.php",
+					url: "eliminarusuario.php",
 					data: parametros,
 					 beforeSend: function(objeto){
 						$(".datos_ajax_delete").html("Mensaje: Cargando...");
@@ -119,7 +113,7 @@ $(document).ready(function() {
             data: dataString,
             success: function(data) {
                 //Escribimos las sugerencias que nos manda la consulta
-                $('#suggestions').fadeIn(0).html(data);
+                $('#suggestions').fadeIn(1000).html(data);
                 //Al hacer click en algua de las sugerencias
                 $('.suggest-element').on('click',function(){
                     //Obtenemos la id unica de la sugerencia pulsada

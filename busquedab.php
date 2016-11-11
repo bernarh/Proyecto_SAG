@@ -32,9 +32,8 @@
                                     <label for="buscar" class="control-label">Buscar:</label>
                                 </div>
                                 <div class="col-xs-4">
-                                    <input  type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista(this.value);" placeholder="Ingrese el nombre del Productor"/>
+                                    <input  type="text" name="buscar" id="buscar" class="form-control" onkeyup="lista(this.value);" placeholder="Ingrese codigo de registro o nombre usuario"/>
 
-                                     <input  type="submit" class="form-control" onclick="descargarExcel();" value="Descargar"/>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -52,7 +51,7 @@
     </div>
     <script src="js/jquery-1.11.2.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/tabla.js"></script>
+    <script src="js/tabla4.js"></script>
 </body>
 </html>
 

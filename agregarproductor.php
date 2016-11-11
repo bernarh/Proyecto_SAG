@@ -2,7 +2,8 @@
 	session_start();
 	include 'conexion.php';
 	# conectare la base de datos
-    $con=@mysqli_connect('localhost', 'root', '', 'prueba_db');
+	$conexion= new Conexion();
+    $con=@$conexion->getConexion();
     if(!$con){
         die("imposible conectarse: ".mysqli_error($con));
     }
@@ -40,11 +41,13 @@
 		$telefono=mysqli_real_escape_string($con,(strip_tags($_POST["telefono"],ENT_QUOTES)));
 		$ubicacion=mysqli_real_escape_string($con,(strip_tags($_POST["ubicacion"],ENT_QUOTES)));
 		$correo=mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
-			$sql="INSERT INTO `tbl_productores`(`codigo_productor`, `nombre_productor`, `telefono`, `correo`, `codigo_zona`, `codigo_municipio`, `ubicacion_exacta`, `fecha_ingreso_productor`, `codigo_usuario`) VALUES ('','".$nombretecnico."','".$telefono."','".$correo."','".$ruta."','".$municipio."','".$ubicacion."',now(),'".$_SESSION['codigousuario']."')";
+			$sql="INSERT INTO `tbl_productores`(`codigo_productor`, `nombre_productor`, `telefono`, `correo`, `codigo_zona`, `codigo_municipio`, `ubicacion_exacta`, `fecha_ingreso_productor`, `codigo_usuario`, `estado_productor`) VALUES ('','".$nombretecnico."','".$telefono."','".$correo."','".$ruta."','".$municipio."','".$ubicacion."',now(),'".$_SESSION['codigousuario']."', '1')";
 			$query_update = mysqli_query($con,$sql);
 				if ($query_update){
 					$messages[] = "Los datos han sido guardados satisfactoriamente.";
-					
+					echo "Los datos han sido Guardados satisfactoriamente.";
+					echo '<script> alert("Guardado con exito") </script>';
+					echo '<script> window.location="new_productor.php"; </script>';
 				} else{
 					$errors []= "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 				}

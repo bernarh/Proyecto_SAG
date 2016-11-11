@@ -106,3 +106,14 @@ footer{
 
 }
 
+.suggest-element{
+    margin-left:5px;
+    margin-top:5px;
+    width:350px;
+    cursor:pointer;
+}
+#suggestions {
+    width:350px;
+    height:150px;
+ 	overflow: auto;
+}
