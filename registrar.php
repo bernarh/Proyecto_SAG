@@ -18,12 +18,14 @@ if(isset($_SESSION['user']) and($_SESSION['codigotipousuario']===3) ) { ?>
 
   <body>
 	  <header>
-				<?php include_once('menu/menutecnico.php') ?>
+				<?php include('menu/menutecnico.php') ?>
+				<?php include("modal_registrar/modal_agregar.php");?>
+	  			<?php include("modal_registrar/modal_modificar.php");?>
+	 			 <?php include("modal_registrar/modal_eliminar.php");?>
 	  </header>
 			<br>
-	  <?php include("modal_registrar/modal_agregar.php");?>
-	  <?php include("modal_registrar/modal_modificar.php");?>
-	  <?php include("modal_registrar/modal_eliminar.php");?>
+	 	<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 	    <div class="container-fluid">
 		 
 			<div class='col-xs-6'>	
@@ -47,7 +49,6 @@ if(isset($_SESSION['user']) and($_SESSION['codigotipousuario']===3) ) { ?>
 	    <script src="js/jquery-3.1.1.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="js/bootstrap.min.js" ></script>
-		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 		<script src="js/app.js"></script>
 		<script>
 			$(document).ready(function(){

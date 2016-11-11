@@ -2,7 +2,7 @@
 session_start();
 include 'conexion.php';
 
-if(isset($_SESSION['user'])and ($_SESSION['codigotipousuario']===3)) {
+if(isset($_SESSION['user'])and($_SESSION['codigotipousuario']===1)) {
 
     $where=" ";
     $zona="";
@@ -60,7 +60,8 @@ if(isset($_SESSION['user'])and ($_SESSION['codigotipousuario']===3)) {
 <!doctype html>
 <html>
 	<head>
-		
+		<title>Ver Datos</title>
+        <link rel="shortcut icon" href="imagenes/cacao.ico">
 		<meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/Style.css">
@@ -128,7 +129,7 @@ if(isset($_SESSION['user'])and ($_SESSION['codigotipousuario']===3)) {
 	<body>
 
 		<header>
-			<?php include('menu/menutecnico.php') ?>
+				<?php include_once('menu/menuadministrador.php') ?>
 		</header>
 		<br>
 

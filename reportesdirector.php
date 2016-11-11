@@ -3,7 +3,7 @@ session_start();
 include 'conexion.php';
 
 
-if(isset($_SESSION['user'])) {
+if(isset($_SESSION['user'])and($_SESSION['codigotipousuario']===2) ) {
 
     $where=" ";
       

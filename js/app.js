@@ -16,7 +16,7 @@
 
 		$('#dataUpdate').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Botón que activó el modal
-		  var nombretecnico = button.data('nombretecnico') // Extraer la información de atributos de datos
+		  var nombretecnico = button.data('codigoproductor') // Extraer la información de atributos de datos
 		  
 		  var modal = $(this)
 		  modal.find('.modal-body #nombretecnico').val(nombretecnico)

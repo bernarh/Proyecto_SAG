@@ -2,7 +2,7 @@
 session_start();
 include 'conexion.php';
 
-if(isset($_SESSION['user'])and($_SESSION['codigotipousuario']===2) ) {?>
+if(isset($_SESSION['user'])and($_SESSION['codigotipousuario']===1) ) {?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -40,77 +40,7 @@ ${demo.css}
         <script src="highcharts/js/jquery.min.js"></script>
         <script src="highcharts/js/highcharts.js"></script>
         <header>
-                    <div class="row">
-                        <div class="container-fluid" id="logos">
-                            <div class="">
-                                <img class="col-xs-10 col-sm-10 col-md-10"src="imagenes/logos.png">
-                            </div>                  
-                            <div class="clearfix visible-xs-block"></div>
-                            <div class="clearfix visible-sm-block"></div>
-                            <br>        
-                        </div>
-                        <div class="container-fluid">
-                            <nav class="navbar navbar-default ">
-                                    <div class="container-fluid">
-                                        <div class="navbar-header">
-                                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
-                                                <span class="sr-only">Menu</span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                                <span class="icon-bar"></span>
-                                            </button>
-
-                                            
-                                            <a class="navbar-brand">
-                                                <img id="icono" alt="Brand" src="imagenes/cacao.ico">
-                                            </a>
-                                            <a href="#icono" class="navbar-brand">PROCACAHO</a>
-                                            
-                                        </div>
-
-                                        <div class="collapse navbar-collapse" id="navbar-1">
-                                            <ul class="nav navbar-nav">
-                                                <li><a href="ver_datosdirector.php">Ver Datos</a></li>
-                                                
-                                                <li><a href="reportesdirector.php">Reportes</a></li>
-                                                <li class="dropdown">
-                                                    <a href="" class="dropdown-toggle active" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
-                                                    <ul class="dropdown-menu">
-                                                        <li><a href="grafico_barrad.php">Grafico de Barras</a></li>
-                                                        <li><a href="grafico_linead.php">Grafico de Linea</a></li>
-                                                        
-                                                        <li class="divider"></li>
-                                                       
-
-                                                    </ul>
-                                                </li>
-                                                <li class="dropdown ">
-                                                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Opci&oacute;n<span class="caret"></span></a>           
-                                                    <ul href="opcion" class="dropdown-menu">
-                                                        <li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
-                                                        <li class="divider"></li>
-                                                        <li><a href="cambiarpwd.php">Cambiar Contrase&ntilde;a</a></li>
-                                                       
-                                                        
-
-                                                    </ul>
-                                                </li>
-
-
-                                            </ul>
-
-                                            <form action="" class="navbar-form navbar-right hidden-sm" role="search">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control " placeholder="Buscar">
-
-                                                </div>
-
-                                            </form>
-                                        </div>
-                                    </div>
-                            </nav>
-                        </div>
-                    </div>
+            <?php include_once('menu/menuadministrador.php') ?>
         </header>
 
                 <!--filtros para el grafico-->

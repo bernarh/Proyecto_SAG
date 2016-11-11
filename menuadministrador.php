@@ -2,7 +2,7 @@
 session_start();
 include 'conexion.php';
 
-if(isset($_SESSION['user'])) {?>
+if(isset($_SESSION['user'])and($_SESSION['codigotipousuario']===1) ) {?>
 <!doctype html>
 <html>
 	<head>
@@ -16,17 +16,18 @@ if(isset($_SESSION['user'])) {?>
 	<body>
 		<header>
 			<?php include_once('menu/menuadministrador.php') ?>
-		
+			<?php include("modal_usuarios/modal_agregar.php");?>
+	  		<?php include("modal_usuarios/modal_modificar.php");?>
+	  		<?php include("modal_usuarios/modal_eliminar.php");?>
 		</header>
 		<br>
 		
 		<div>
-		<?php include("modal_usuarios/modal_agregar.php");?>
-	  	<?php include("modal_usuarios/modal_modificar.php");?>
-	  	<?php include("modal_usuarios/modal_eliminar.php");?>
+		
 			<center><h3>Usuarios Registrados Recientemente</h3></center>
 		</div>
-
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
 		<div class='col-xs-6'>
 				<h3 class='text-right'>		
 					<button type="button" class="btn btn-default" data-toggle="modal" data-target="#dataRegister"><i class='glyphicon glyphicon-plus'></i> Agregar</button>

@@ -28,15 +28,15 @@
 
 								<div class="collapse navbar-collapse" id="navbar-1">
 									<ul class="nav navbar-nav">
-										<li class="active"><a href="">Editar Usuario</a></li>
+										<li ><a href="menuadministrador.php">Editar Usuario</a></li>
 										<li><a href="registroactividad.php">Registro de Actividades</a></li>
-										<li><a href="">Ver Datos</a></li>
-										<li><a href="">Reportes</a></li>
+										<li><a href="ver_datosadministrador.php">Ver Datos</a></li>
+										<li><a href="reportesadministrador.php">Reportes</a></li>
 										<li class="dropdown">
 											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Graficos<span class="caret"></span></a>
 											<ul class="dropdown-menu">
-												<li><a href="#">Grafico de Barras</a></li>
-												<li><a href="#">Grafico de Linea</a></li>
+												<li><a href="grafico_barraadministrador.php">Grafico de Barras</a></li>
+												<li><a href="grafico_lineaadministrador.php">Grafico de Linea</a></li>
 												<li><a href="#">Grafico Circular</a></li>
 												<li class="divider"></li>
 												<li><a href="#">Grafico Precio Internacional</a></li>
@@ -48,8 +48,8 @@
 											<ul href="opcion" class="dropdown-menu">
 												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
-												<li><a href="#">Cambiar Contrase&ntilde;a</a></li>
-												<li><a href="#">Mi Perfil</a></li>
+												<li><a href="cambiarpwadmin.php">Cambiar Contrase&ntilde;a</a></li>
+												
 												
 
 											</ul>
@@ -58,13 +58,6 @@
 
 									</ul>
 
-									<form action="" class="navbar-form navbar-right hidden-sm" role="search">
-										<div class="form-group">
-											<input type="text" class="form-control " placeholder="Buscar">
-
-										</div>
-
-									</form>
 								</div>
 							</div>
 					</nav>

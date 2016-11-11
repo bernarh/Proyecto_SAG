@@ -7,6 +7,7 @@
 		private $pw="";
 		private $codigoTipoUsuario="";
 		private $codigoUsuario="";
+		private $estadoUsuario="";
 		function __construct($user,$pw)
 		{
 			$this->user=$user;
@@ -23,10 +24,10 @@
     			exit();
 			}
 
-			if ($stmt = $mysqli->prepare("SELECT CODIGO_USUARIO, USER, PW, CODIGO_TIPO_USUARIO FROM TBL_USUARIOS WHERE USER = ? AND PW = ? ")){
+			if ($stmt = $mysqli->prepare("SELECT CODIGO_USUARIO, USER, PW, CODIGO_TIPO_USUARIO, ESTADO_USUARIO FROM TBL_USUARIOS WHERE USER = ? AND PW = ? ")){
 				$stmt->bind_param("ss",$this->user,$this->pw);
 				$stmt->execute();
-				$stmt->bind_result($this->codigoUsuario,$this->user,$this->pw,$this->codigoTipoUsuario);
+				$stmt->bind_result($this->codigoUsuario,$this->user,$this->pw,$this->codigoTipoUsuario, $this->estadoUsuario);
 				$stmt->fetch();
 			}
 		}
@@ -61,6 +62,13 @@
 
 		public function getCodigoTipoUsuario(){
 			return $this->codigoTipoUsuario;
+		}
+		public function setEstadoUsuario($estadoUsuario){
+			$this->estadoUsuario=$estadoUsuario;
+		}
+
+		public function getEstadoUsuario(){
+			return $this->estadoUsuario;
 		}
 	}
 ?>
