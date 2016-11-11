@@ -99,39 +99,28 @@ if(isset($_SESSION['user'])) {?>
 					<tr class="success">
 						<th>C&oacute;digo Actividad</th>
 						<th>Nombre del Usuario</th>
-						<th>Formulario</th>
-						<th>Tipo de Actividad</th>
-						<th>Actividad</th>
 						<th>Fecha</th>
-						<th>Correo Electr&oacute;nico</th>
+						<th>Acci&oacute;n</th>
 					</tr>
-					<tr class="active">
-						<td>0001</td>
-						<td>Usuario 1</td>
-						<td>registrar productor</td>
-						<td>agregar productor</td>
-						<td>agregar productor</td>
-						<td>16/09/2016</td>
-						<td>usuario1@dominiocorreo.com</td>
-					</tr>
-					<tr class="active">
-						<td>0002</td>
-						<td>Usuario 1</td>
-						<td>registrar productor</td>
-						<td>editar productor</td>
-						<td>editar productor</td>
-						<td>16/09/2016</td>
-						<td>usuario1@dominiocorreo.com</td>
-					</tr>
-					<tr class="active">
-						<td>0003</td>
-						<td>Usuario 1</td>
-						<td>registrar productor</td>
-						<td>eliminar productor</td>
-						<td>eliminar productor</td>
-						<td>16/09/2016</td>
-						<td>usuario1@dominiocorreo.com</td>
-					</tr>
+					<?php
+                            $conexion= new Conexion();
+                            
+                            $sql= "SELECT * FROM tbl_bitacora ORDER BY fecha DESC limit 20";
+                                            
+                            
+                            $result = mysqli_query($conexion->getConexion(),$sql);
+                             
+                            while ($registro2=mysqli_fetch_array($result)) {
+                                 
+                                echo '<tr class="active">
+                                    <td>'.$registro2['codigo_registro'].'</td>
+                                    <td>'.$registro2['nombre_usuario'].'</td>
+                                    <td>'.$conexion->fechaNormal($registro2['fecha']).'</td>
+                                    <td>'.$registro2['accion'].'</td>
+                                  </tr>';
+                            }
+
+                        ?>
 				</table>
 			</div>
 			
