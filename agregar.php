@@ -57,10 +57,10 @@
 		
 		/* crear una sentencia preparada */
 		$sentencia = mysqli_stmt_init($con);
-		if (mysqli_stmt_prepare($sentencia, 'SELECT codigo_productor FROM tbl_productores WHERE codigo_productor=?')) {
-
+		if (mysqli_stmt_prepare($sentencia, 'SELECT codigo_productor FROM tbl_productores WHERE codigo_productor=? and estado_productor = ? ')) {
+			$estado=1;
 		    /* vincular los parámetros para los marcadores */
-		    mysqli_stmt_bind_param($sentencia, "i", $nombretecnico);
+		    mysqli_stmt_bind_param($sentencia, "ii", $nombretecnico,$estado);
 
 		    /* ejecutar la consulta */
 		    mysqli_stmt_execute($sentencia);

@@ -7,7 +7,7 @@
         <h4 class="modal-title" id="exampleModalLabel">Nuevo Productor:</h4>
       </div>
       <div class="modal-body">
-			 <div id="datos_ajax_register"></div>
+			 <div id="datos_ajax"></div>
       
         <input type="hidden" class="form-control" id="codigotecnico" name="codigotecnico" required maxlength="30">
         <div class="form-group">

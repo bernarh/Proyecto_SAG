@@ -2,6 +2,7 @@
 <div class="modal fade" id="dataDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+      <div id="datos_ajax_delete"></div>
       <input type="hidden" id="fechaingresoproducto" name="fechaingresoproducto">
       <input type="hidden" id="codigoproductor" name="codigoproductor">
       <input type="hidden" id="codigoproducto" name="codigoproducto">

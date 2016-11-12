@@ -84,10 +84,10 @@
 					url: "eliminarusuario.php",
 					data: parametros,
 					 beforeSend: function(objeto){
-						$(".datos_ajax_delete").html("Mensaje: Cargando...");
+						$("#datos_ajax_delete").html("Mensaje: Cargando...");
 					  },
 					success: function(datos){
-					$(".datos_ajax_delete").html(datos);
+					$("#datos_ajax_delete").html(datos);
 					
 					$('#dataDelete').modal('hide');
 					load(1);

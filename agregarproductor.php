@@ -42,6 +42,7 @@
 		$ubicacion=mysqli_real_escape_string($con,(strip_tags($_POST["ubicacion"],ENT_QUOTES)));
 		$correo=mysqli_real_escape_string($con,(strip_tags($_POST["correo"],ENT_QUOTES)));
 			$sql="INSERT INTO `tbl_productores`(`codigo_productor`, `nombre_productor`, `telefono`, `correo`, `codigo_zona`, `codigo_municipio`, `ubicacion_exacta`, `fecha_ingreso_productor`, `codigo_usuario`, `estado_productor`) VALUES ('','".$nombretecnico."','".$telefono."','".$correo."','".$ruta."','".$municipio."','".$ubicacion."',now(),'".$_SESSION['codigousuario']."', '1')";
+			echo $sql;
 			$query_update = mysqli_query($con,$sql);
 				if ($query_update){
 					$messages[] = "Los datos han sido guardados satisfactoriamente.";

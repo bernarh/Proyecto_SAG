@@ -24,7 +24,7 @@
 		echo "nombre del usuario vacío";
 	} else if (empty($_POST['pass1'])||empty($_POST['pass2'])){
 		echo "el password esta vacio";
-	} else if (strlen ($_POST['pass1'])>=4 && strlen ($_POST['pass1'])<=8){
+	} else if (strlen ($_POST['pass1'])<4 && strlen ($_POST['pass1'])>8){
 		echo "el password debe contener de 4 a 8 caracteres";
 	}else if ($_POST['pass1']!=$_POST['pass2']){
 		echo  "los password no coinciden";

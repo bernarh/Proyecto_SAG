@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="exampleModalLabel">Agregar nuevo precio y producto de este producto:</h4>
+        <h4 class="modal-title" id="exampleModalLabel">Agregar nuevo precio y producto de este productor:</h4>
       </div>
       <div class="modal-body">
 			<div id="datos_ajax"></div>
