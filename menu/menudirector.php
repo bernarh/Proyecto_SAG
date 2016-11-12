@@ -53,6 +53,21 @@
 
 												</ul>
 											</li>
+											
+											  <li class="dropdown ">
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Ayuda<span class="caret"></span></a>	 		
+											<ul href="opcion" class="dropdown-menu">
+												<li><a href="Ayuda_Roles_Administrador.html">Roles</a></li>
+												
+												
+												<li><a href="Ayuda_Reportes.html">Reportes</a></li>
+												
+												<li><a href="Ayuda_Graficos.html">Graficos</a></li>
+												
+												
+									</ul>
+                                       
+                                        </li>
 
 
 										</ul>

@@ -45,7 +45,9 @@
 	<script src="js/bootstrap.min.js"></script>
 	</body>
 	</div>
+	<center><p color="white">Recomendado para Chrome</p><center>
 	<footer>
+
 
 
 	</footer>

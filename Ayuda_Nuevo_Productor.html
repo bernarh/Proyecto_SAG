@@ -1,0 +1,46 @@
+<?php
+session_start();
+include 'conexion.php';
+
+if(isset($_SESSION['user'])and($_SESSION['codigotipousuario']===1) ) {?>
+<!doctype html>
+<html>
+    <head>
+        <title>Editar Usuario</title>
+        <meta name="viewport" content="width=device-width, user-scalale=no, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0">
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/Style.css">
+    
+    
+    </head>
+    <body>
+        <header>
+            
+            		<div class="container-fluid" id="logos">
+					<div class="">
+						<img class="col-xs-10 col-sm-10 col-md-10" src="imagenes/logos.png">
+					</div>					
+					<div class="clearfix visible-xs-block"></div>
+					<div class="clearfix visible-sm-block"></div>
+					<br>		
+				</div>
+        </header>
+        <br>
+      
+      <!--  <div style='align :"center"' >
+      <embed src="Ayudas/Administradores/Editar%20Usuario.pdf" type="application/pdf" width="800px" height="400px"></div>-->
+        <embed src="Ayudas/Tecnicos/Nuevo%20productor.pdf" width ="1400" height="1100">.
+
+
+
+
+    </body>
+    
+    <footer class="footer">
+	<div class="row">
+		<center><h6>Todos los derechos Reservados @CopyRight</h6></center>
+	</div>
+
+</footer>
+    
+</html>

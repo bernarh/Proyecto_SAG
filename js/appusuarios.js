@@ -20,7 +20,6 @@
 		  var codigousuario = button.data('codigousuario') // Extraer la información de atributos de datos
 		  var nombreusuario = button.data('nombreusuario') // Extraer la información de atributos de datos
 		  var direccion = button.data('direccion') // Extraer la información de atributos de datos
-		  var pw = button.data('pw') // Extraer la información de atributos de datos
 		  var telefono = button.data('telefono') // Extraer la información de atributos de datos
 		  var correo = button.data('correo') // Extraer la información de atributos de datos
 		  var tipousuario = button.data('tipousuario') // Extraer la información de atributos de datos
@@ -28,8 +27,6 @@
 		  modal.find('#fechaingreso').val(fechaingreso);
 		  modal.find('#codigousuario').val(codigousuario);
 		  modal.find('#nombreusuario').val(nombreusuario);
-		  modal.find('#pass1').val(pw);
-		  modal.find('#pass2').val(pw);
 		  modal.find('#direccion').val(direccion);
 		  modal.find('#telefono').val(telefono);
 		  modal.find('#correo').val(correo);

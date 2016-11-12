@@ -46,16 +46,25 @@
 												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
 												<li><a href="cambiarpw.php">Cambiar Contrase&ntilde;a</a></li>
-												
-												
-
-											</ul>
-										</li>
-
-
 									</ul>
-
-								
+                                        </li>
+                                        <li class="dropdown ">
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Ayuda<span class="caret"></span></a>	 		
+											<ul href="opcion" class="dropdown-menu">
+												<li><a href="Ayuda_Roles_Administrador.html">Roles</a></li>
+												<!--<li class="divider"></li>-->
+												<li><a href="Ayuda_Agregar_Producto.html">Agregar Producto</a></li>
+												
+												
+												<li><a href="Ayuda_Nuevo_Productor.html">Nuevo Productor</a></li>
+												<li><a href="ver_datos.html">Ver datos</a></li>
+												<li><a href="Ayuda_Graficos.html">Graficos</a></li>
+												
+												
+									</ul>
+                                       
+                                        </li>
+                                    </ul>
 								</div>
 							</div>
 					</nav>

@@ -27,7 +27,7 @@
 			if ($stmt = $mysqli->prepare("SELECT CODIGO_USUARIO, USER, PW, CODIGO_TIPO_USUARIO, ESTADO_USUARIO FROM TBL_USUARIOS WHERE USER = ? AND PW = ? ")){
 				$stmt->bind_param("ss",$this->user,$this->pw);
 				$stmt->execute();
-				$stmt->bind_result($this->codigoUsuario,$this->user,$this->user,$this->codigoTipoUsuario, $this->estadoUsuario);
+				$stmt->bind_result($this->codigoUsuario,$this->user,$this->pw,$this->codigoTipoUsuario, $this->estadoUsuario);
 				$stmt->fetch();
 			}
 		}

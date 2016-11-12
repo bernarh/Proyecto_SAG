@@ -3,9 +3,11 @@ session_start();
 include 'conexion.php';
 
 
-if(isset($_SESSION['user'])and ($_SESSION['codigotipousuario']===3)) {
+if(isset($_SESSION['user'])) {
 
     $where=" ";
+    $semana=" ";
+    $lazona=" ";
       
 
    if (isset($_POST["xruta"])){
@@ -26,27 +28,33 @@ if(isset($_SESSION['user'])and ($_SESSION['codigotipousuario']===3)) {
 
         }else if(empty($_POST['xruta']) and empty($_POST['bd-desde'])){
             $where="where A.fecha_ingreso_producto <= '".$fechafin."' " ;
-                                                   
+            $semana="hasta ".$fechafin." ";                                     
 
         }else if(empty($_POST['bd-hasta']) and empty($_POST['xruta'])){
             $where="where a.fecha_ingreso_producto >= '".$fechaini."' ";
+            $semana="desde el ".$fechaini." "; 
             
             
               }else if(empty($_POST['bd-hasta']) and empty($_POST['bd-desde'])){
                         $where= "where c.codigo_zona='".$zona."'";
+                        $lazona= "en la ruta ".$zona."";
 
                     }else if(empty($_POST['xruta']) ){
                                $where="where a.fecha_ingreso_producto between '".$fechaini."' AND '".$fechafin."' ";
+                               $semana= "desde el ".$fechaini." hasta el ".$fechafin."";
 
                             }else if(empty($_POST['bd-desde']) ){
                                         $where="where c.codigo_zona='".$zona."' AND a.fecha_ingreso_producto <= '".$fechafin."' ";
-
+                                        $lazona="en la ruta ".$zona."";
+                                        $semana="hasta el ".$fechafin."";
                                     }else if(empty($_POST['bd-hasta']) ){
                                                $where="where c.codigo_zona='".$zona."' AND a.fecha_ingreso_producto >= '".$fechaini."' ";
-
+                                               $lazona="en la ruta ".$zona."";
+                                               $semana="desde el ".$fechaini."";
                                             }else {
                                                         $where="where c.codigo_zona='".$zona."' AND a.fecha_ingreso_producto between '".$fechaini."' AND '".$fechafin."' ";
-                                                        
+                                                        $lazona="en la ruta ".$zona."";
+                                                        $semana="desde el ".$fechaini." hasta el ".$fechafin."";
                                                     }
     }
 
@@ -123,7 +131,72 @@ if(isset($_SESSION['user'])and ($_SESSION['codigotipousuario']===3)) {
 	<body>
 
 		<header>
-			<?php include('menu/menutecnico.php') ?>
+			<div class="row">
+				<div class="container-fluid" id="logos">
+					<div class="">
+						<img class="col-xs-10 col-sm-10 col-md-10"src="imagenes/logos.png">
+					</div>					
+					<div class="clearfix visible-xs-block"></div>
+					<div class="clearfix visible-sm-block"></div>
+					<br>		
+				</div>
+				<div class="container-fluid">
+					<nav class="navbar navbar-default ">
+							<div class="container-fluid">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+										<span class="sr-only">Menu </span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+										<span class="icon-bar"></span>
+									</button>
+
+									
+									<a class="navbar-brand">
+										<img id="icono" alt="Brand" src="imagenes/cacao.ico">
+									</a>
+									<a href="#icono" class="navbar-brand">PROCACAHO</a>
+									
+								</div>
+
+								<div class="collapse navbar-collapse" id="navbar-1">
+									<ul class="nav navbar-nav">
+										<li><a href="registrar.php">Registrar</a></li>
+										<li><a href="new_productor.php">Nuevo Productor</a></li>
+										<li><a href="ver_datos.php">Ver Datos</a></li>
+										<li class="active"><a href="reportes.php">Reportes</a></li>
+										<li class="dropdown">
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Gr&aacute;ficos<span class="caret"></span></a>
+											<ul class="dropdown-menu">
+												<li><a href="grafico_barra.php">Gr&aacute;fico de Barras</a></li>
+                                                <li><a href="grafico_linea.php">Gr&aacute;fico de Linea</a></li>
+                                                <li><a href="grafico_pastel.php">Gr&aacute;fico Circular</a></li>
+												<li class="divider"></li>
+												<li><a href="#">Gr&aacute;fico Precio Internacional</a></li>
+
+											</ul>
+										</li>
+										<li class="dropdown ">
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Opci&oacute;n<span class="caret"></span></a>	 		
+											<ul href="opcion" class="dropdown-menu">
+												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
+												<li class="divider"></li>
+												<li><a href="cambiarpw.php">Cambiar Contrase&ntilde;a</a></li>
+												
+												
+
+											</ul>
+										</li>
+
+
+									</ul>
+
+									
+								</div>
+							</div>
+					</nav>
+				</div>
+			</div>
 		</header>
 		<br>
 
@@ -184,8 +257,9 @@ if(isset($_SESSION['user'])and ($_SESSION['codigotipousuario']===3)) {
 			<div class="table-responsive">
 				<table id="dataTable" class="table table-bordered ">
 		<tr>
-            <th colspan="6" bgcolor="skyblue">
-            <CENTER>Rango de precio  venta de cacao convencional por municipio</CENTER>
+            <th colspan="5" bgcolor="skyblue">
+            <CENTER>Rango de precio venta de cacao convencional por municipio  <?php echo $lazona ?></CENTER>
+            <center><?php echo $semana ?></center>
             </th>
           </tr>
            <tr bgcolor="white">

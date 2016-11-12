@@ -24,7 +24,7 @@ if(isset($_SESSION['user'])) {
 	
 		<div class="container row " id="caja">
 			<center><h1 id="login">Confirmación</h1></center>
-		<form action="cambiod.php" method="post">
+		<form action="cambio.php" method="post">
 			<input id="inputext" type="password" name="pw" required placeholder="Contraseña actual" /> <img src="imagenes/ayuda.png" title="Ingrese contraseña con la cual ingreso" width="30" height="30"/>
 			<input id="inputext" type="password" name="pw1" required placeholder="Nueva contraseña"/>  <img src="imagenes/ayuda.png" title="La contraseña no debe tener espacios en blanco" width="30" height="30"/>
 			<input id="inputext" type="password" name="pw2" required placeholder="Confirmar contraseña"/> <img src="imagenes/ayuda.png" title="Las contraseñas deben coincidir" width="30" height="30"/>

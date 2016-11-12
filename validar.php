@@ -45,7 +45,7 @@
 						$connect=$conexion->getConexion();
 						$query= "INSERT INTO tbl_bitacora values('','".$_SESSION['user']."',now(),'$accion')";
 						$result= mysqli_query($connect,$query);
-						echo '<script> window.location="registrardirector.php"; </script>';
+						echo '<script> window.location="ver_datosdirector.php"; </script>';
 					}else if ($usuario->getCodigoTipoUsuario()==3){
 						$accion="Ingreso el usuariocon codigo: ".$_SESSION["codigousuario"];
 						$connect=$conexion->getConexion();

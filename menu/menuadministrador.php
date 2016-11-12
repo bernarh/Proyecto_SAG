@@ -49,10 +49,35 @@
 												<li><a href="logout.php">Cerrar Sesi&oacute;n</a></li>
 												<li class="divider"></li>
 												<li><a href="cambiarpwadmin.php">Cambiar Contrase&ntilde;a</a></li>
+												<!------------------------------------------------------------->
+										
+											
+													
+												
+												<!------------------------------------------------------------->
+												
+
+											</ul>
+											
+
+                                                </li>
+                                                <li class="dropdown ">
+											<a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" >Ayuda<span class="caret"></span></a>	 		
+											<ul href="opcion" class="dropdown-menu">
+												<li><a href="Ayuda_Roles_Administrador.html">Roles</a></li>
+												<li class="divider"></li>
+												<li><a href="Ayuda_Editar_Usuario.html">Editar Usuario</a></li>
+												<li><a href="Ayuda_Registro_Actividades.html">Registro de Actividades</a></li>
+												
+											<li><a href="ver_datos.html">Ver datos</a></li>
+												<li><a href="Ayuda_Reportes.html">Reportes</a></li>
+												<li><a href="Ayuda_Graficos.html">Graficos</a></li>
 												
 												
 
 											</ul>
+										</li>
+
 										</li>
 
 

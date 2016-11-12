@@ -46,11 +46,12 @@
 
 			$sql="UPDATE tbl_productores SET nombre_productor='".$nombretecnico."', telefono='".$telefono."',correo='".$correo."',codigo_zona='".$ruta."',codigo_municipio='".$municipio."',ubicacion_exacta='".$ubicacion."' WHERE codigo_productor='".$codigotecnico."'";
 			$query_update = mysqli_query($con,$sql);
-			echo "Los datos han sido Actualizados satisfactoriamente.";
-			echo '<script> alert("Actualizados con exito") </script>';
-			echo '<script> window.location="new_productor.php"; </script>';
+			
 				if ($query_update){
-					
+					$messages[] = "Los datos han sido eliminados satisfactoriamente.";
+					echo "Los datos han sido Actualizados satisfactoriamente.";
+					echo '<script> alert("Actualizados con exito") </script>';
+					echo '<script> window.location="new_productor.php"; </script>';
 				} else{
 					echo "Lo siento algo ha salido mal intenta nuevamente.".mysqli_error($con);
 				}
@@ -87,5 +88,6 @@
 				</div>
 				<?php
 			}
+			echo '<script> window.location="new_productor.php"; </script>';
 
 ?>
